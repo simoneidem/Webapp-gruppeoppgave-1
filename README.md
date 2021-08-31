@@ -1,5 +1,5 @@
 # Webapp-gruppeoppgave-1
-Gruppeoppgave 1 i webapplikasjoner. Målet er å lage en komplett løsning hvor man kan foreta kjøp av billetter til båttur.
+Gruppeoppgave 1 i webapplikasjoner. Målet er å lage en komplett webapplikasjon hvor man kan foreta kjøp av billetter til båttur.
 Løsningen skal være i .NET core, js, jq og Entity Framework.
 
 ## Oppgave:
