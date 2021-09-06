@@ -25,3 +25,4 @@ Applikasjon for bestilling av billetter til båttur med f.eks. color line eller 
 - Forsøk å gjøre nettsiden brukervennlige som mulig. Det blir vektlagt.
 ```
 
+Test
