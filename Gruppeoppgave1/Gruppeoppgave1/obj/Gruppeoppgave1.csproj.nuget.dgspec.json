@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/Users/harispasic/Projects/Webapp-gruppeoppgave-1/Gruppeoppgave1/Gruppeoppgave1/Gruppeoppgave1.csproj": {}
+    "C:\\Users\\Lekerommet\\Source\\Repos\\Webapp-gruppeoppgave-1\\Gruppeoppgave1\\Gruppeoppgave1\\Gruppeoppgave1.csproj": {}
   },
   "projects": {
-    "/Users/harispasic/Projects/Webapp-gruppeoppgave-1/Gruppeoppgave1/Gruppeoppgave1/Gruppeoppgave1.csproj": {
+    "C:\\Users\\Lekerommet\\Source\\Repos\\Webapp-gruppeoppgave-1\\Gruppeoppgave1\\Gruppeoppgave1\\Gruppeoppgave1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/harispasic/Projects/Webapp-gruppeoppgave-1/Gruppeoppgave1/Gruppeoppgave1/Gruppeoppgave1.csproj",
+        "projectUniqueName": "C:\\Users\\Lekerommet\\Source\\Repos\\Webapp-gruppeoppgave-1\\Gruppeoppgave1\\Gruppeoppgave1\\Gruppeoppgave1.csproj",
         "projectName": "Gruppeoppgave1",
-        "projectPath": "/Users/harispasic/Projects/Webapp-gruppeoppgave-1/Gruppeoppgave1/Gruppeoppgave1/Gruppeoppgave1.csproj",
-        "packagesPath": "/Users/harispasic/.nuget/packages/",
-        "outputPath": "/Users/harispasic/Projects/Webapp-gruppeoppgave-1/Gruppeoppgave1/Gruppeoppgave1/obj/",
+        "projectPath": "C:\\Users\\Lekerommet\\Source\\Repos\\Webapp-gruppeoppgave-1\\Gruppeoppgave1\\Gruppeoppgave1\\Gruppeoppgave1.csproj",
+        "packagesPath": "C:\\Users\\Lekerommet\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Lekerommet\\Source\\Repos\\Webapp-gruppeoppgave-1\\Gruppeoppgave1\\Gruppeoppgave1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/harispasic/.config/NuGet/NuGet.Config"
+          "C:\\Users\\Lekerommet\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -37,6 +39,16 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[5.0.9, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -55,7 +67,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.400/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
