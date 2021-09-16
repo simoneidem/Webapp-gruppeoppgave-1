@@ -1,5 +1,8 @@
-﻿using Gruppeoppgave1.Model;
+﻿using Gruppeoppgave1.DAL;
+using Gruppeoppgave1.Model;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,90 +11,68 @@ using System.Threading.Tasks;
 namespace Gruppeoppgave1.Controllers
 {
     [Route("[controller]/[action]")]
-    
+
     public class ReiseController : ControllerBase
     {
-        private readonly ReiseDB _db;
+        private IReiseRepository _db;
 
-        public ReiseController(ReiseDB db)
+        private ILogger<ReiseController> _log;
+
+        public ReiseController(IReiseRepository db, ILogger<ReiseController> log)
         {
             _db = db;
+            _log = log;
         }
 
-        public bool Bestille(Reise innReise)
+        public async Task<ActionResult> Bestille(Reise innReise)
         {
-            try
+            bool returOK = await _db.Bestille(innReise);
+            if (!returOK)
             {
-                _db.Reiser.Add(innReise);
-                _db.SaveChanges();
-                return true;
+                _log.LogInformation("Bestillingen ble ikke lagret");
+                return BadRequest("Bestillingen ble ikke lagret");
             }
-            catch
-            {
-                return false;
-            }
+            return Ok("Bestilling ble lagret");
         }
 
-        public List<Reise> HentAlle()
+        public async Task<ActionResult> HentAlle()
         {
-            try
-            {
-                //Henter hele tabellen
-                List<Reise> alleReisene = _db.Reiser.ToList();
-                return alleReisene;
-            }
-            catch
-            {
-                return null;
-            }
-            
+            List<Reise> alleReiser = await _db.HentAlle();
+            return Ok(alleReiser);
         }
 
-        public bool Slett(int id)
+        public async Task<ActionResult> Slett(int id)
         {
-            try
+            bool returOK = await _db.Slett(id);
+            if (!returOK)
             {
-                Reise enReise = _db.Reiser.Find(id);
-                _db.Reiser.Remove(enReise);
-                _db.SaveChanges();
-                return true;
+                _log.LogInformation("Reise ble ikke slettet");
+                return NotFound("Reise ble ikke slettet");
             }
-            catch
-            {
-                return false;
-            }
+            return Ok("Reise ble slettet");
         }
 
-        public Reise HentEn(int id)
+        public async Task<ActionResult> HentEn(int id)
         {
-            try
+            Reise reisen = await _db.HentEn(id);
+            if (reisen == null)
             {
-                Reise enReise = _db.Reiser.Find(id);
-                return enReise;
+                _log.LogInformation("Fant ikke reisen");
+                return NotFound("Fant ikke reisen");
             }
-            catch
-            {
-                return null;
-            }
-
+            return Ok(reisen);
         }
 
-        public bool Endre(Reise endreReise)
+        public async Task<ActionResult> Endre(Reise endreReise)
         {
-            try
+            bool returOK = await _db.Endre(endreReise);
+            if (!returOK)
             {
-                Reise enReise = _db.Reiser.Find(endreReise.Id);
-                enReise.Strekning = endreReise.Strekning;
-                enReise.Tid = endreReise.Tid;
-                _db.SaveChanges();
-                return true;
+                _log.LogInformation("Reise ble ikke endret");
+                return NotFound("Reise ble ikke endret");
             }
-            catch
-            {
-                return false;
-            }
+            return Ok("Reise ble endret");
         }
-
     }
 
 }

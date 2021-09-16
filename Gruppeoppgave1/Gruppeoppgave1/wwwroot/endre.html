@@ -13,12 +13,51 @@
         <form class="form">
             <input type="hidden" id="id" />
             <div class="form-group">
+                <label>Type</label>
+                <select id="type">
+                    <option value="Én vei">Én vei</option>
+                    <option value="Tur/retur">Tur/retur</option>
+                    <option value="Cruise">Cruise</option>
+                    <option value="Innenriks - Én vei">Innenriks - Én vei</option>
+                    <option value="Innenriks - Tur/retur">Innenriks - Tur/retur</option>
+                </select>
+            </div>
+            <div class="form-group">
                 <label>Strekning</label>
-                <input type="text" id="strekning" />
+                <select id="strekning">
+                    <option value="Oslo - Kiel">Oslo - Kiel</option>
+                    <option value="Kristiandsand - Bergen">Kristiandsand - Bergen</option>
+                    <option value="Arendal - København">Arendal - København</option>
+                    <option value="Stavanger - York">Stavanger - York</option>
+                </select>
             </div>
             <div class="form-group">
                 <label>Tid</label>
-                <input type="text" id="tid" />
+                <input type="time" id="tid" />
+            </div>
+            <div class="form-group">
+                <label>Antall billetter</label>
+                <input type="text" id="antall" />
+            </div>
+            <div class="form-group">
+                <label>Billett type</label>
+                <select id="billett">
+                    <option value="Voksen">Voksen</option>
+                    <option value="Student">Student</option>
+                    <option value="Barn (4-18 år)">Barn (4-18 år)</option>
+                    <option value="Barn (0-3 år)">Barn (0-3 år)</option>
+                    <option value="Honnør">Honnør</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Transport</label>
+                <select id="transport">
+                    <option value="Ingen">Ingen</option>
+                    <option value="Bil">Bil</option>
+                    <option value="Motorsykkel">Motorsykkel</option>
+                    <option value="Bil over 3,5t">Bil over 3,5t</option>
+                    <option value="Sykkel">Sykkel</option>
+                </select>
             </div>
             <div class="form-group">
                 <input type="button" id="reg" value="Endre" class="btn btn-primary" onclick="endreReise()" />

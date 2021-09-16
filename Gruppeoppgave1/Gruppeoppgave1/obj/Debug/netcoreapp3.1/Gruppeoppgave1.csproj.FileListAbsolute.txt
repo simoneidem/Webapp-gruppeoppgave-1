@@ -58,3 +58,12 @@ C:\Users\Lekerommet\Source\Repos\Webapp-gruppeoppgave-1\Gruppeoppgave1\Gruppeopp
 C:\Users\Lekerommet\Source\Repos\Webapp-gruppeoppgave-1\Gruppeoppgave1\Gruppeoppgave1\obj\Debug\netcoreapp3.1\Gruppeoppgave1.dll
 C:\Users\Lekerommet\Source\Repos\Webapp-gruppeoppgave-1\Gruppeoppgave1\Gruppeoppgave1\obj\Debug\netcoreapp3.1\Gruppeoppgave1.pdb
 C:\Users\Lekerommet\Source\Repos\Webapp-gruppeoppgave-1\Gruppeoppgave1\Gruppeoppgave1\obj\Debug\netcoreapp3.1\Gruppeoppgave1.genruntimeconfig.cache
+C:\Users\Lekerommet\Source\Repos\Webapp-gruppeoppgave-1\Gruppeoppgave1\Gruppeoppgave1\bin\Debug\netcoreapp3.1\Castle.Core.dll
+C:\Users\Lekerommet\Source\Repos\Webapp-gruppeoppgave-1\Gruppeoppgave1\Gruppeoppgave1\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Proxies.dll
+C:\Users\Lekerommet\Source\Repos\Webapp-gruppeoppgave-1\Gruppeoppgave1\Gruppeoppgave1\bin\Debug\netcoreapp3.1\Serilog.dll
+C:\Users\Lekerommet\Source\Repos\Webapp-gruppeoppgave-1\Gruppeoppgave1\Gruppeoppgave1\bin\Debug\netcoreapp3.1\Serilog.Extensions.Logging.dll
+C:\Users\Lekerommet\Source\Repos\Webapp-gruppeoppgave-1\Gruppeoppgave1\Gruppeoppgave1\bin\Debug\netcoreapp3.1\Serilog.Extensions.Logging.File.dll
+C:\Users\Lekerommet\Source\Repos\Webapp-gruppeoppgave-1\Gruppeoppgave1\Gruppeoppgave1\bin\Debug\netcoreapp3.1\Serilog.Formatting.Compact.dll
+C:\Users\Lekerommet\Source\Repos\Webapp-gruppeoppgave-1\Gruppeoppgave1\Gruppeoppgave1\bin\Debug\netcoreapp3.1\Serilog.Sinks.Async.dll
+C:\Users\Lekerommet\Source\Repos\Webapp-gruppeoppgave-1\Gruppeoppgave1\Gruppeoppgave1\bin\Debug\netcoreapp3.1\Serilog.Sinks.File.dll
+C:\Users\Lekerommet\Source\Repos\Webapp-gruppeoppgave-1\Gruppeoppgave1\Gruppeoppgave1\bin\Debug\netcoreapp3.1\Serilog.Sinks.RollingFile.dll
