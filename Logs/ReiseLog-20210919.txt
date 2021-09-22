@@ -1,0 +1,15 @@
+2021-09-19T14:34:35.1556427+02:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-09-19T14:34:35.1667113+02:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-09-19T14:34:35.1690776+02:00  [INF] Content root path: "C:\Users\herma\source\repos\weboppg1\weboppg1" (b5d60022)
+2021-09-19T14:34:44.5873546+02:00  [ERR] Browserslist: caniuse-lite is outdated. Please run:
+ (02daff8f)
+2021-09-19T14:36:50.9229894+02:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-09-19T14:36:50.9335169+02:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-09-19T14:36:50.9353197+02:00  [INF] Content root path: "C:\Users\herma\source\repos\weboppg1\weboppg1" (b5d60022)
+2021-09-19T14:36:57.3418652+02:00  [ERR] Browserslist: caniuse-lite is outdated. Please run:
+ (02daff8f)
+2021-09-19T14:37:29.3219428+02:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-09-19T14:37:29.3355802+02:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-09-19T14:37:29.3375839+02:00  [INF] Content root path: "C:\Users\herma\source\repos\weboppg1\weboppg1" (b5d60022)
+2021-09-19T14:37:35.1925273+02:00  [ERR] Browserslist: caniuse-lite is outdated. Please run:
+ (02daff8f)
