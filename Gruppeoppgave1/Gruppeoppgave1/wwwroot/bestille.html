@@ -11,55 +11,86 @@
     <div class="container">
         <h1>Bestill ny reise</h1>
         <form class="form">
-            <div class="form-group">
-                <label>Type</label>
-                <select id="type">
-                    <option value="Én vei">Én vei</option>
-                    <option value="Tur/retur">Tur/retur</option>
-                    <option value="Cruise">Cruise</option>
-                    <option value="Innenriks - Én vei">Innenriks - Én vei</option>
-                    <option value="Innenriks - Tur/retur">Innenriks - Tur/retur</option>
-                </select>
+            <div id="ifno1" style="display:block">
+                <div class="form-group">
+                    <label>Type</label>
+                    <select id="type">
+                        <option value="Én vei">Én vei</option>
+                        <option value="Tur/retur">Tur/retur</option>
+                        <option value="Cruise">Cruise</option>
+                        <option value="Innenriks - Én vei">Innenriks - Én vei</option>
+                        <option value="Innenriks - Tur/retur">Innenriks - Tur/retur</option>
+                    </select>
+                </div>
             </div>
-            <div class="form-group">
-                <label>Strekning</label>
-                <select id="strekning">
-                    <option value="Oslo - Kiel">Oslo - Kiel</option>
-                    <option value="Kristiandsand - Bergen">Kristiandsand - Bergen</option>
-                    <option value="Arendal - København">Arendal - København</option>
-                    <option value="Stavanger - York">Stavanger - York</option>
-                </select>
+            <div id="ifno2" style="display:block">
+                <div class="form-group">
+                    <label>Strekning</label>
+                    <select id="strekning">
+                        <option value="Oslo - Kiel">Oslo - Kiel</option>
+                        <option value="Kristiandsand - Bergen">Kristiandsand - Bergen</option>
+                        <option value="Arendal - København">Arendal - København</option>
+                        <option value="Stavanger - York">Stavanger - York</option>
+                    </select>
+                </div>
             </div>
-            <div class="form-group">
-                <label>Tid</label>
-                <input type="time" id="tid" />
+            <div id="ifno3" style="display:block">
+                <div class="form-group">
+                    <label>Tid</label>
+                    <input type="time" id="tid" />
+                </div>
             </div>
-            <div class="form-group">
-                <label>Antall billetter</label>
-                <input type="text" id="antall" />
+            <div id="button1" style="display:block">
+                <div class="form-group">
+                    <input type="button" id="reg" value="Videre" onClick="showAll()" class="btn btn-primary" />
+                </div>
             </div>
-            <div class="form-group">
-                <label>Billett type</label>
-                <select id="billett">
-                    <option value="Voksen">Voksen</option>
-                    <option value="Student">Student</option>
-                    <option value="Barn (4-18 år)">Barn (4-18 år)</option>
-                    <option value="Barn (0-3 år)">Barn (0-3 år)</option>
-                    <option value="Honnør">Honnør</option>
-                </select>
+            <div id="ifPress1" style="display:none">
+                <div class="form-group">
+                    <label>Voksen</label>
+                    <input type="number" id="voksen" value="0" min="0" max="15" />
+                </div>
             </div>
-            <div class="form-group">
-                <label>Transport</label>
-                <select id="transport">
-                    <option value="Ingen">Ingen</option>
-                    <option value="Bil">Bil</option>
-                    <option value="Motorsykkel">Motorsykkel</option>
-                    <option value="Bil over 3,5t">Bil over 3,5t</option>
-                    <option value="Sykkel">Sykkel</option>
-                </select>
+            <div id="ifPress2" style="display:none">
+                <div class="form-group">
+                    <label>Honnør</label>
+                    <input type="number" id="honnor" value="0" min="0" max="15" />
+                </div>
             </div>
-            <div class="form-group">
-                <input type="button" id="reg" value="Bestill" onClick="bestillReise()" class="btn btn-primary" />
+            <div id="ifPress3" style="display:none">
+                <div class="form-group">
+                    <label>Barn</label>
+                    <input type="number" id="barn" value="0" min="0" max="15" />
+                </div>
+            </div>
+            <div id="ifPress4" style="display:none">
+                <div class="form-group">
+                    <label>Student</label>
+                    <input type="number" id="student" value="0" min="0" max="15" />
+                </div>
+            </div>
+            <div id="ifPress5" style="display:none">
+                <div class="form-group">
+                    <label>Bil</label>
+                    <input type="number" id="bil" value="0" min="0" max="15" />
+                </div>
+            </div>
+            <div id="ifPress6" style="display:none">
+                <div class="form-group">
+                    <label>Motorsykkel</label>
+                    <input type="number" id="motorsykkel" value="0" min="0" max="15" />
+                </div>
+            </div>
+            <div id="ifPress7" style="display:none">
+                <div class="form-group">
+                    <label>Sykkel</label>
+                    <input type="number" id="sykkel" value="0" min="0" max="15" />
+                </div>
+            </div>
+            <div id="button2" style="display:none">
+                <div class="form-group">
+                    <input type="button" id="reg" value="Bestill" onClick="bestillReise()" class="btn btn-primary" />
+                </div>
             </div>
             <div id="feil" style="color: red"></div>
         </form>

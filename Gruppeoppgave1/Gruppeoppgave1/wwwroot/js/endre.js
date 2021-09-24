@@ -1,4 +1,21 @@
-﻿$(function () {
+﻿function showAll() {
+    document.getElementById('ifPress1').style.display = 'block';
+    document.getElementById('ifPress2').style.display = 'block';
+    document.getElementById('ifPress3').style.display = 'block';
+    document.getElementById('ifPress4').style.display = 'block';
+    document.getElementById('ifPress5').style.display = 'block';
+    document.getElementById('ifPress6').style.display = 'block';
+    document.getElementById('ifPress7').style.display = 'block';
+
+    document.getElementById('ifno1').style.display = 'none';
+    document.getElementById('ifno2').style.display = 'none';
+    document.getElementById('ifno3').style.display = 'none';
+
+    document.getElementById('button1').style.display = 'none';
+    document.getElementById('button2').style.display = 'block';
+};
+
+$(function () {
 
     const id = window.location.search.substring(1);
     const url = "Reise/HentEn?" + id;
@@ -7,9 +24,13 @@
         $("#type").val(reise.type);
         $("#strekning").val(reise.strekning);
         $("#tid").val(reise.tid);
-        $("#antall").val(reise.antall);
-        $("#billett").val(reise.billett);
-        $("#transport").val(reise.transport);
+        $("#voksen").val(reise.voksen);
+        $("#honnor").val(reise.honnor);
+        $("#barn").val(reise.barn);
+        $("#student").val(reise.student);
+        $("#bil").val(reise.bil);
+        $("#motorsykkel").val(reise.motorsykkel);
+        $("#sykkel").val(reise.sykkel);
         
     });
 });
@@ -20,9 +41,13 @@ function endreReise() {
         type: $("#type").val(),
         strekning: $("#strekning").val(),
         tid: $("#tid").val(),
-        antall: $("#antall").val(),
-        billett: $("#billett").val(),
-        transport: $("#transport").val()
+        voksen: $("#voksen").val(),
+        honnor: $("#honnor").val(),
+        barn: $("#barn").val(),
+        student: $("#student").val(),
+        bil: $("#bil").val(),
+        motorsykkel: $("#motorsykkel").val(),
+        sykkel: $("#sykkel").val()
     };
     $.post("Reise/Endre", reise, function () {
         window.location.href = 'index.html';

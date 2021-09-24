@@ -24,26 +24,21 @@ namespace Gruppeoppgave1.DAL
                 nyReiseRad.Type = innReise.Type;
                 nyReiseRad.Strekning = innReise.Strekning;
                 nyReiseRad.Tid = innReise.Tid;
-                var sjekkAntall = await _db.Detaljer.FindAsync(innReise.Antall);
-                var detaljersRad = new Detaljer();
-                detaljersRad.Antall = innReise.Antall;
-                detaljersRad.Billett = innReise.Billett;
-                detaljersRad.Transport = innReise.Transport;
-                nyReiseRad.Detalje = detaljersRad;
 
-                /*var sjekkAntall = await _db.Detaljer.FindAsync(innReise.Antall);
-                if (sjekkAntall == null)
-                {
-                    var detaljersRad = new Detaljer();
-                    detaljersRad.Antall = innReise.Antall;
-                    detaljersRad.Billett = innReise.Billett;
-                    detaljersRad.Transport = innReise.Transport;
-                    nyReiseRad.Detalje = detaljersRad;
-                }
-                else
-                {
-                    nyReiseRad.Detalje = sjekkAntall;
-                }*/
+                var billettrad = new BillettInfo();
+                billettrad.Voksen = innReise.Voksen;
+                billettrad.Barn = innReise.Barn;
+                billettrad.honnor = innReise.honnor;
+                billettrad.Student = innReise.Student;
+                nyReiseRad.BillettIn = billettrad;
+
+                var transportrad = new TransportInfo();
+                transportrad.Bil = innReise.Bil;
+                transportrad.Motorsykkel = innReise.Motorsykkel;
+                transportrad.Sykkel = innReise.Sykkel;
+                nyReiseRad.TransportIn = transportrad;
+               
+
                 _db.Reiser.Add(nyReiseRad);
                 await _db.SaveChangesAsync();
                 return true;
@@ -66,9 +61,13 @@ namespace Gruppeoppgave1.DAL
                     Type = k.Type,
                     Strekning = k.Strekning,
                     Tid = k.Tid,
-                    Antall = k.Detalje.Antall,
-                    Billett = k.Detalje.Billett,
-                    Transport = k.Detalje.Transport
+                    Voksen = k.BillettIn.Voksen,
+                    honnor = k.BillettIn.honnor,
+                    Barn = k.BillettIn.Barn,
+                    Student = k.BillettIn.Student,
+                    Bil = k.TransportIn.Bil,
+                    Motorsykkel = k.TransportIn.Motorsykkel,
+                    Sykkel = k.TransportIn.Sykkel
                 }).ToListAsync();
                 return alleReisene;
             }
@@ -103,9 +102,14 @@ namespace Gruppeoppgave1.DAL
                 Type = enReise.Type,
                 Strekning = enReise.Strekning,
                 Tid = enReise.Tid,
-                Antall = enReise.Detalje.Antall,
-                Billett = enReise.Detalje.Billett,
-                Transport = enReise.Detalje.Transport
+                Voksen = enReise.BillettIn.Voksen,
+                honnor = enReise.BillettIn.honnor,
+                Barn = enReise.BillettIn.Barn,
+                Student = enReise.BillettIn.Student,
+                Bil = enReise.TransportIn.Bil,
+                Motorsykkel = enReise.TransportIn.Motorsykkel,
+                Sykkel = enReise.TransportIn.Sykkel
+
 
             };
             return hentetReise;
@@ -116,31 +120,18 @@ namespace Gruppeoppgave1.DAL
             try
             {
                 var endreObjekt = await _db.Reiser.FindAsync(endreReise.Id);
-                if (endreObjekt.Detalje.Antall != endreReise.Antall)
-                {
-                    var sjekkAntall = _db.Detaljer.Find(endreReise.Antall);
-                    var detaljersRad = new Detaljer();
-                    detaljersRad.Antall = endreReise.Antall;
-                    detaljersRad.Billett = endreReise.Billett;
-                    detaljersRad.Transport = endreReise.Transport;
-                    endreObjekt.Detalje = detaljersRad;
-                    /*if (sjekkAntall == null)
-                    {
-                        var detaljersRad = new Detaljer();
-                        detaljersRad.Antall = endreReise.Antall;
-                        detaljersRad.Billett = endreReise.Billett;
-                        detaljersRad.Transport = endreReise.Transport;
-                        endreObjekt.Detalje = detaljersRad;
-                    }
-                    else
-                    {
-                        endreObjekt.Detalje.Antall = sjekkAntall.Antall;
-                    }*/
-
-                }
+               
                 endreObjekt.Type = endreReise.Type;
                 endreObjekt.Strekning = endreReise.Strekning;
                 endreObjekt.Tid = endreReise.Tid;
+                endreObjekt.BillettIn.Voksen = endreReise.Voksen;
+                endreObjekt.BillettIn.honnor = endreReise.honnor;
+                endreObjekt.BillettIn.Barn = endreReise.Barn;
+                endreObjekt.BillettIn.Student = endreReise.Student;
+                endreObjekt.TransportIn.Bil = endreReise.Bil;
+                endreObjekt.TransportIn.Motorsykkel = endreReise.Motorsykkel;
+                endreObjekt.TransportIn.Sykkel = endreReise.Sykkel;
+
                 await _db.SaveChangesAsync();
             }
             catch

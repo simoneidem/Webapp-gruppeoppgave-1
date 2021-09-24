@@ -3,11 +3,10 @@
     "",
     "\\Gruppeoppgave1",
     "\\Gruppeoppgave1\\Gruppeoppgave1",
-    "\\Gruppeoppgave1\\Gruppeoppgave1\\Controllers",
-    "\\Gruppeoppgave1\\Gruppeoppgave1\\Model",
+    "\\Gruppeoppgave1\\Gruppeoppgave1\\DAL",
     "\\Gruppeoppgave1\\Gruppeoppgave1\\wwwroot",
     "\\Gruppeoppgave1\\Gruppeoppgave1\\wwwroot\\js"
   ],
-  "SelectedNode": "\\Gruppeoppgave1\\Gruppeoppgave1\\wwwroot\\js\\endre.js",
+  "SelectedNode": "\\Gruppeoppgave1\\Gruppeoppgave1\\DAL\\ReiseRepository.cs",
   "PreviewInSolutionExplorer": false
 }

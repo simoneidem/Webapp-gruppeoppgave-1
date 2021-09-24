@@ -7,24 +7,53 @@ using Microsoft.EntityFrameworkCore;
 namespace Gruppeoppgave1.Model
 {
 
+    // Tabell for Reise
     public class Reiser
     {
         public int Id { get; set; }
+
         public string Type { get; set; }
+
         public string Strekning { get; set; }
+
         public string Tid { get; set; }
-        virtual public Detaljer Detalje { get; set; }
+
+        public virtual BillettInfo BillettIn { get; set; }
+
+        public virtual TransportInfo TransportIn { get; set; }
+
     }
 
-    public class Detaljer
+    // Tabell for Billetter
+    public class BillettInfo
     {
         [Key]
-        [System.ComponentModel.DataAnnotations.Schema.DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int BillettId { get; set; }
 
-        public string Antall { get; set; }
-        public string Billett { get; set; }
-        public string Transport { get; set; }
+        public int Voksen { get; set; }
+
+        public int Barn { get; set; }
+
+        public int honnor { get; set; }
+
+        public int Student { get; set; }
     }
+
+    // Tabell for kjøretøy
+    public class TransportInfo
+    {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int TransportId { get; set; }
+
+        public int Bil { get; set; }
+
+        public int Motorsykkel { get; set; }
+
+        public int Sykkel { get; set; }
+    }
+
     public class ReiseDB :DbContext
     {
         //Klassen er knytningen mellom controller og databasen
@@ -36,8 +65,9 @@ namespace Gruppeoppgave1.Model
         }
 
         public DbSet<Reiser> Reiser { get; set; }
+        public DbSet<BillettInfo> BillettInfo { get; set; }
+        public DbSet<TransportInfo> TransportInfo { get; set; }
 
-        public DbSet<Detaljer> Detaljer { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

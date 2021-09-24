@@ -11,16 +11,20 @@ function hentAlleReiser() {
 function formaterReiser(reiser) {
     let ut = "<table class='table table-striped'>" +
         "<tr>" +
-        "<th>Type</th><th>Strekning</th><th>Tid</th><th>Antall</th><th>Billett</th><th>Transport</th><th></th><th></th>" +
+        "<th>Type</th><th>Strekning</th><th>Tid</th><th>Voksen</th><th>Honnør</th><th>Barn</th><th>Student</th><th>Bil</th><th>Motorsykkel</th><th>Sykkel</th><th></th><th></th>" +
         "</tr>";
     for (let reise of reiser) {
         ut += "<tr>" +
             "<td>" + reise.type + "</td>" +
             "<td>" + reise.strekning + "</td>" +
             "<td>" + reise.tid + "</td>" +
-            "<td>" + reise.antall + "</td>" +
-            "<td>" + reise.billett + "</td>" +
-            "<td>" + reise.transport + "</td>" +
+            "<td>" + reise.voksen + "</td>" +
+            "<td>" + reise.honnor + "</td>" +
+            "<td>" + reise.barn + "</td>" +
+            "<td>" + reise.student + "</td>" +
+            "<td>" + reise.bil + "</td>" +
+            "<td>" + reise.motorsykkel + "</td>" +
+            "<td>" + reise.sykkel + "</td>" +
             "<td> <a class='btn btn-primary' href='endre.html?id="+reise.id+"'>Endre</a></td>" +
             "<td> <button class='btn btn-danger' onclick='slettReise("+reise.id+")'>Slett</button</td>"+
             "</tr>";

@@ -26,13 +26,18 @@ namespace Gruppeoppgave1.Controllers
 
         public async Task<ActionResult> Bestille(Reise innReise)
         {
-            bool returOK = await _db.Bestille(innReise);
-            if (!returOK)
+            if (ModelState.IsValid)
             {
-                _log.LogInformation("Bestillingen ble ikke lagret");
-                return BadRequest("Bestillingen ble ikke lagret");
+                bool returOK = await _db.Bestille(innReise);
+                if (!returOK)
+                {
+                    _log.LogInformation("Bestillingen ble ikke lagret");
+                    return BadRequest("Bestillingen ble ikke lagret");
+                }
+                return Ok("Bestilling ble lagret");
             }
-            return Ok("Bestilling ble lagret");
+            _log.LogInformation("Feil i inputvalidering");
+            return BadRequest("Feil i inputvalidering på server");
         }
 
         public async Task<ActionResult> HentAlle()
@@ -54,24 +59,34 @@ namespace Gruppeoppgave1.Controllers
 
         public async Task<ActionResult> HentEn(int id)
         {
-            Reise reisen = await _db.HentEn(id);
-            if (reisen == null)
+            if (ModelState.IsValid)
             {
-                _log.LogInformation("Fant ikke reisen");
-                return NotFound("Fant ikke reisen");
+                Reise reisen = await _db.HentEn(id);
+                if (reisen == null)
+                {
+                    _log.LogInformation("Fant ikke reisen");
+                    return NotFound("Fant ikke reisen");
+                }
+                return Ok(reisen);
             }
-            return Ok(reisen);
+            _log.LogInformation("Feil i inputvalidering");
+            return BadRequest("Feil i inputvalidering på server");
         }
 
         public async Task<ActionResult> Endre(Reise endreReise)
         {
-            bool returOK = await _db.Endre(endreReise);
-            if (!returOK)
+            if (ModelState.IsValid)
             {
-                _log.LogInformation("Reise ble ikke endret");
-                return NotFound("Reise ble ikke endret");
+                bool returOK = await _db.Endre(endreReise);
+                if (!returOK)
+                {
+                    _log.LogInformation("Reise ble ikke endret");
+                    return NotFound("Reise ble ikke endret");
+                }
+                return Ok("Reise ble endret");
             }
-            return Ok("Reise ble endret");
+            _log.LogInformation("Feil i inputvalidering");
+            return BadRequest("Feil i inputvalidering på server");
         }
     }
 
