@@ -14,6 +14,22 @@
     document.getElementById('button1').style.display = 'none';
     document.getElementById('button2').style.display = 'block';
 };
+
+function validerOgBestill() {
+    const typeOK = validerType($("#type").val());
+    const strekningOK = validerStrekning($("#strekning").val());
+    const tidOK = validerTid($("#tid").val());
+    const voksenOK = validerVoksen($("#voksen").val());
+    const honnorOK = validerHonnor($("#honnor").val());
+    const barnOK = validerBarn($("#barn").val());
+    const studentOK = validerStudent($("#student").val());
+    const bilOK = validerBil($("#bil").val());
+    const motorsykkelOK = validerMotorsykkel($("#motorsykkel").val());
+    const sykkelOK = validerSykkel($("#sykkel").val());
+    if (typeOK && strekningOK && tidOK && voksenOK && honnorOK && barnOK && studentOK && bilOK && motorsykkelOK && sykkelOK) {
+        bestillReise();
+    }
+}
 function bestillReise() {
     const reise = {
         type: $("#type").val(),

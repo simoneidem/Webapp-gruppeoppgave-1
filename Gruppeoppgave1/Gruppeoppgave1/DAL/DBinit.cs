@@ -14,7 +14,7 @@ namespace Gruppeoppgave1.Model
             {
                 var context = serviceScope.ServiceProvider.GetService<ReiseDB>();
 
-                // må slette og opprette databasen hver gang når den skalinitieres (seed`es)
+                // Denne filen legger inn data i databasen/tabellen når programmet starter
                 context.Database.EnsureDeleted();
                 context.Database.EnsureCreated();
 

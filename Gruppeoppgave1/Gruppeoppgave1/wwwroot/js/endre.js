@@ -35,6 +35,22 @@ $(function () {
     });
 });
 
+function validerOgEndre() {
+    const typeOK = validerType($("#type").val());
+    const strekningOK = validerStrekning($("#strekning").val());
+    const tidOK = validerTid($("#tid").val());
+    const voksenOK = validerVoksen($("#voksen").val());
+    const honnorOK = validerHonnor($("#honnor").val());
+    const barnOK = validerBarn($("#barn").val());
+    const studentOK = validerStudent($("#student").val());
+    const bilOK = validerBil($("#bil").val());
+    const motorsykkelOK = validerMotorsykkel($("#motorsykkel").val());
+    const sykkelOK = validerSykkel($("#sykkel").val());
+    if (typeOK && strekningOK && tidOK && voksenOK && honnorOK && barnOK && studentOK && bilOK && motorsykkelOK && sykkelOK) {
+        endreReise();
+    }
+}
+
 function endreReise() {
     const reise = {
         id: $("#id").val(),
