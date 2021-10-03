@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Bestill ny reise</h1>
+        <h1>Planlegg en ny reise her:</h1>
         <form class="form">
             <div id="ifno1" style="display:block">
                 <div class="form-group">
@@ -28,7 +28,7 @@
             <div id="ifno2" style="display:block">
                 <div class="form-group">
                     <label>Strekning</label>
-                    <select id="strekning"  onchange="validerStrekning(this.value)">
+                    <select id="strekning" onchange="validerStrekning(this.value)">
                         <option value="Oslo - Kiel">Oslo - Kiel</option>
                         <option value="Kristiandsand - Bergen">Kristiandsand - Bergen</option>
                         <option value="Arendal - København">Arendal - København</option>
@@ -39,9 +39,9 @@
             </div>
             <div id="ifno3" style="display:block">
                 <div class="form-group">
-                    <label>Tid</label>
-                    <input type="time" id="tid" onchange="validerTid(this.value)" />
-                    <span id="feilTid" style="color: red"></span>
+                    <label>Dato (for utreise)</label>
+                    <input type="text" id="dato" onchange="validerDato(this.value)" />
+                    <span id="feilDato" style="color: red"></span>
                 </div>
             </div>
             <div id="button1" style="display:block">
@@ -52,56 +52,98 @@
             <div id="ifPress1" style="display:none">
                 <div class="form-group">
                     <label>Voksen</label>
-                    <input type="number" id="voksen" value="0" min="0" max="15"  onchange="validerVoksen(this.value)"/>
+                    <input type="number" id="voksen" value="0" min="0" max="15" onchange="validerVoksen(this.value)" />
                     <span id="feilVoksen" style="color: red"></span>
                 </div>
             </div>
             <div id="ifPress2" style="display:none">
                 <div class="form-group">
                     <label>Honnør</label>
-                    <input type="number" id="honnor" value="0" min="0" max="15"  onchange="validerHonnor(this.value)"/>
+                    <input type="number" id="honnor" value="0" min="0" max="15" onchange="validerHonnor(this.value)" />
                     <span id="feilHonnor" style="color: red"></span>
                 </div>
             </div>
             <div id="ifPress3" style="display:none">
                 <div class="form-group">
                     <label>Barn</label>
-                    <input type="number" id="barn" value="0" min="0" max="15"  onchange="validerBarn(this.value)"/>
+                    <input type="number" id="barn" value="0" min="0" max="15" onchange="validerBarn(this.value)" />
                     <span id="feilBarn" style="color: red"></span>
                 </div>
             </div>
             <div id="ifPress4" style="display:none">
                 <div class="form-group">
                     <label>Student</label>
-                    <input type="number" id="student" value="0" min="0" max="15"  onchange="validerStudent(this.value)"/>
+                    <input type="number" id="student" value="0" min="0" max="15" onchange="validerStudent(this.value)" />
                     <span id="feilStudent" style="color: red"></span>
                 </div>
             </div>
             <div id="ifPress5" style="display:none">
                 <div class="form-group">
                     <label>Bil</label>
-                    <input type="number" id="bil" value="0" min="0" max="15"  onchange="validerBil(this.value)"/>
+                    <input type="number" id="bil" value="0" min="0" max="15" onchange="validerBil(this.value)" />
                     <span id="feilBil" style="color: red"></span>
                 </div>
             </div>
             <div id="ifPress6" style="display:none">
                 <div class="form-group">
                     <label>Motorsykkel</label>
-                    <input type="number" id="motorsykkel" value="0" min="0" max="15"  onchange="validerMotorsykkel(this.value)"/>
+                    <input type="number" id="motorsykkel" value="0" min="0" max="15" onchange="validerMotorsykkel(this.value)" />
                     <span id="feilMotorsykkel" style="color: red"></span>
                 </div>
             </div>
             <div id="ifPress7" style="display:none">
                 <div class="form-group">
                     <label>Sykkel</label>
-                    <input type="number" id="sykkel" value="0" min="0" max="15"  onchange="validerSykkel(this.value)"/>
+                    <input type="number" id="sykkel" value="0" min="0" max="15" onchange="validerSykkel(this.value)" />
                     <span id="feilSykkel" style="color: red"></span>
                 </div>
             </div>
             <div id="button2" style="display:none">
-                <div class="form-group">
-                    <input type="button" id="reg" value="Bestill" onClick="bestillReise()" class="btn btn-primary" />
+                <div class="form-group"> 
+                    <input type="button" id="reg" value="Se reiser" onClick="dontShow()" class="btn btn-primary" />
                 </div>
+            </div>
+            <div id="alt" style="display:none">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="https://static.directferries.co.uk/image/ship/1/color_line_color_fantasy.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title" id="card1">Tur</h5>
+                        <p class="card-text">Båten forlater havna klokka 12:00. Husk å være der 30 min før avgang. Båtnummer er på billett</p>
+                        <input type="button" id="tid1" value="Velg reise" onClick="checkButton()" class="btn btn-primary" />
+                    </div>
+                </div>
+
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="https://dgyz5gkjcides.cloudfront.net/wp-content/uploads/2017/02/25203012/langesund-hirthsals-header.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title" id="card2">Tur</h5>
+                        <p class="card-text">Båten forlater havna klokka 13:00. Husk å være der 30 min før avgang. Båtnummer er på billett</p>
+                        <input type="button" id="tid2" value="Velg reise" onClick="checkButton()" class="btn btn-primary" />
+                    </div>
+                </div>
+
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="https://img.fuelcellsworks.com/wp-content/uploads/2021/04/stena-line-accelerates-fossil-free-shipping-to-reduce-emissions-by-30-by-2030.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title" id="card3">Tur</h5>
+                        <p class="card-text">Båten forlater havna klokka 14:00. Husk å være der 30 min før avgang. Båtnummer er på billett</p>
+                        <input type="button" id="tid3" value="Velg reise" onClick="checkButton()" class="btn btn-primary" />
+                    </div>
+                </div>
+
+                <!--<div class="form-group">
+                    <input type="button" id="tid1" value="12:00" onClick="checkButton()" class="btn btn-primary" />
+                </div>
+                <div class="form-group">
+                    <input type="button" id="tid2" value="13:00" onClick="checkButton()" class="btn btn-primary" />
+                </div>
+                <div class="form-group">
+                    <input type="button" id="tid3" value="14:00" onClick="checkButton()" class="btn btn-primary" />
+                </div>-->
+            </div>
+            <div class="form-group" style="display:none">
+                <input type="button" id="tid"/>
+                <input type="button" id="reiseid" />
             </div>
             <div id="feil" style="color: red"></div>
         </form>

@@ -24,15 +24,15 @@ function validerStrekning(strekning) {
     }
 }
 
-function validerTid(tid) {
-    const regexp = /^(2[0-3]|[01]?[0-9]):([0-5]?[0-9])$/;
-    const ok = regexp.test(tid);
+function validerDato(dato) {
+    const regexp = /^\d{2}\-\d{2}\-\d{2}$/;
+    const ok = regexp.test(dato);
     if (!ok) {
-        $("#feilTid").html("Tid må være alt fra 2 til 20 bokstaver")
+        $("#feilDato").html("Dato må være formatert som dd.mm.yy EKS: (01-01-21)")
         return false;
     }
     else {
-        $("#feilTid").html("");
+        $("#feilDato").html("");
         return true;
     }
 }
@@ -116,7 +116,7 @@ function validerMotorsykkel(motorsykkel) {
 }
 
 function validerSykkel(sykkel) {
-    const regexp = /[0 - 9]/;
+    const regexp = /^([0-9]|1[0-5])$/;
     const ok = regexp.test(sykkel);
     if (!ok) {
         $("#feilSykkel").html("Sykkel må være et tall fra 0 til og med 9")
@@ -124,6 +124,19 @@ function validerSykkel(sykkel) {
     }
     else {
         $("#feilSykkel").html("");
+        return true;
+    }
+}
+
+function validerTid(tid) {
+    const regexp = /^(2[0-3]|[01]?[0-9]):([0-5]?[0-9])$/;
+    const ok = regexp.test(tid);
+    if (!ok) {
+        $("#feilTid").html("Tid må være formatert som 00:00")
+        return false;
+    }
+    else {
+        $("#feilTid").html("");
         return true;
     }
 }

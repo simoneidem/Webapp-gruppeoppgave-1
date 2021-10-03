@@ -19,8 +19,12 @@ namespace Gruppeoppgave1.Model
         public string Type { get; set; }
         [RegularExpression(@"[a-zA-ZæøåÆØÅ. \-]{2,30}")]
         public string Strekning { get; set; }
+        [RegularExpression(@"^\d{2}\-\d{2}\-\d{2}$")]
+        public string Dato { get; set; }
         [RegularExpression(@"^(2[0-3]|[01]?[0-9]):([0-5]?[0-9])$")]
         public string Tid { get; set; }
+
+        public string Reiseid { get; set; }
 
         public int BillettId { get; set; }
         [RegularExpression(@"^([0-9]|1[0-5])$")]
@@ -33,11 +37,11 @@ namespace Gruppeoppgave1.Model
         public int Student { get; set; }
 
         public int TransportId { get; set; }
-        [RegularExpression(@"[0 - 9]")]
+        [RegularExpression(@"^([0-9]|1[0-5])$")]
         public int Bil { get; set; }
-        [RegularExpression(@"[0 - 9]")]
+        [RegularExpression(@"^([0-9]|1[0-5])$")]
         public int Motorsykkel { get; set; }
-        [RegularExpression(@"[0 - 9]")]
+        [RegularExpression(@"^([0-9]|1[0-5])$")]
         public int Sykkel { get; set; }
 
     }

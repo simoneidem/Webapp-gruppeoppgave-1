@@ -23,7 +23,9 @@ namespace Gruppeoppgave1.DAL
                 var nyReiseRad = new Reiser();
                 nyReiseRad.Type = innReise.Type;
                 nyReiseRad.Strekning = innReise.Strekning;
+                nyReiseRad.Dato = innReise.Dato;
                 nyReiseRad.Tid = innReise.Tid;
+                nyReiseRad.Reiseid = innReise.Reiseid;
 
                 var billettrad = new BillettInfo();
                 billettrad.Voksen = innReise.Voksen;
@@ -60,7 +62,9 @@ namespace Gruppeoppgave1.DAL
                     Id = k.Id,
                     Type = k.Type,
                     Strekning = k.Strekning,
+                    Dato = k.Dato,
                     Tid = k.Tid,
+                    Reiseid = k.Reiseid,
                     Voksen = k.BillettIn.Voksen,
                     honnor = k.BillettIn.honnor,
                     Barn = k.BillettIn.Barn,
@@ -83,7 +87,11 @@ namespace Gruppeoppgave1.DAL
             try
             {
                 Reiser enDBReise = await _db.Reiser.FindAsync(id);
+                BillettInfo enBillett = await _db.BillettInfo.FindAsync(id);
+                TransportInfo enTransport = await _db.TransportInfo.FindAsync(id);
                 _db.Reiser.Remove(enDBReise);
+                _db.BillettInfo.Remove(enBillett);
+                _db.TransportInfo.Remove(enTransport);
                 await _db.SaveChangesAsync();
                 return true;
             }
@@ -101,7 +109,9 @@ namespace Gruppeoppgave1.DAL
                 Id = enReise.Id,
                 Type = enReise.Type,
                 Strekning = enReise.Strekning,
+                Dato = enReise.Dato,
                 Tid = enReise.Tid,
+                Reiseid = enReise.Reiseid,
                 Voksen = enReise.BillettIn.Voksen,
                 honnor = enReise.BillettIn.honnor,
                 Barn = enReise.BillettIn.Barn,
@@ -123,7 +133,9 @@ namespace Gruppeoppgave1.DAL
                
                 endreObjekt.Type = endreReise.Type;
                 endreObjekt.Strekning = endreReise.Strekning;
+                endreObjekt.Dato = endreReise.Dato;
                 endreObjekt.Tid = endreReise.Tid;
+                endreObjekt.Reiseid = endreReise.Reiseid;
                 endreObjekt.BillettIn.Voksen = endreReise.Voksen;
                 endreObjekt.BillettIn.honnor = endreReise.honnor;
                 endreObjekt.BillettIn.Barn = endreReise.Barn;

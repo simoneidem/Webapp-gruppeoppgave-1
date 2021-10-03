@@ -16,7 +16,11 @@ namespace Gruppeoppgave1.Model
 
         public string Strekning { get; set; }
 
+        public string Dato { get; set; }
+        
         public string Tid { get; set; }
+
+        public string Reiseid { get; set; }
 
         public virtual BillettInfo BillettIn { get; set; }
 
@@ -25,6 +29,7 @@ namespace Gruppeoppgave1.Model
     }
 
     // Tabell for Billetter
+    // Bruker DatabaseGeneratedOPtion.Identity for at tabellen skal få tildet en key automatisk
     public class BillettInfo
     {
         [Key]

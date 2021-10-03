@@ -14,6 +14,7 @@ namespace Gruppeoppgave1.Controllers
 
     public class ReiseController : ControllerBase
     {
+        //Filen er for feilhåndtering av programmet
         private IReiseRepository _db;
 
         private ILogger<ReiseController> _log;
@@ -24,6 +25,7 @@ namespace Gruppeoppgave1.Controllers
             _log = log;
         }
 
+        //Modelstate sjekker om regexen er ok og sender feilmelding hvis ikke
         public async Task<ActionResult> Bestille(Reise innReise)
         {
             if (ModelState.IsValid)

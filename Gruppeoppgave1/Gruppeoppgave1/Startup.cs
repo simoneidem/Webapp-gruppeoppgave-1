@@ -34,7 +34,7 @@ namespace Gruppeoppgave1
             {
                 app.UseDeveloperExceptionPage();
                 loggerFactory.AddFile("Logs/ReiseLog.txt");
-                DBinit.Initialize(app);
+                //DBinit.Initialize(app);
             }
 
             app.UseRouting();

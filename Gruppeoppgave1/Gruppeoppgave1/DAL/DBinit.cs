@@ -8,13 +8,13 @@ namespace Gruppeoppgave1.Model
 {
     public class DBinit
     {
+        // Denne filen legger inn data i databasen/tabellen når programmet starter
         public static void Initialize(IApplicationBuilder app)
         {
             using (var serviceScope = app.ApplicationServices.CreateScope())
             {
                 var context = serviceScope.ServiceProvider.GetService<ReiseDB>();
 
-                // Denne filen legger inn data i databasen/tabellen når programmet starter
                 context.Database.EnsureDeleted();
                 context.Database.EnsureCreated();
 
@@ -25,8 +25,8 @@ namespace Gruppeoppgave1.Model
                 var Transport2 = new TransportInfo { Bil = 0, Motorsykkel = 0, Sykkel = 4 };
 
 
-                var reise1 = new Reiser { Type = "En vei", Strekning = "Kristiandsand - Kiel", Tid = "09:00", BillettIn = Billett1, TransportIn = Transport1};
-                var reise2 = new Reiser { Type = "Tur/retur", Strekning = "Oslo - Arendal", Tid = "12:00", BillettIn = Billett2, TransportIn = Transport2 };
+                var reise1 = new Reiser { Type = "En vei", Strekning = "Kristiandsand - Kiel", Dato = "17-05-2021", BillettIn = Billett1, TransportIn = Transport1};
+                var reise2 = new Reiser { Type = "Tur/retur", Strekning = "Oslo - Arendal", Dato = "08-10-2021", BillettIn = Billett2, TransportIn = Transport2 };
 
                 context.Reiser.Add(reise1);
                 context.Reiser.Add(reise2);
