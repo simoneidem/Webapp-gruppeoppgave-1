@@ -11,7 +11,7 @@ function hentAlleReiser() {
 function formaterReiser(reiser) {
     let ut = "<table class='table table-striped'>" +
         "<tr>" +
-        "<th>Type</th><th>Strekning</th><th>Dato</th><th>Voksen</th><th>Honnør</th><th>Barn</th><th>Student</th><th>Bil</th><th>Motorsykkel</th><th>Sykkel</th><th>Tid</th><th>Båt ID</th><th></th><th></th>" +
+        "<th>Type</th><th>Strekning</th><th>Dato</th><th>Voksen</th><th>Honnør</th><th>Barn</th><th>Student</th><th>Bil</th><th>Motorsykkel</th><th>Sykkel</th><th>Tid</th><th>Båt ID</th><th>Pris</th><th></th><th></th>" +
         "</tr>";
     for (let reise of reiser) {
         ut += "<tr>" +
@@ -27,6 +27,7 @@ function formaterReiser(reiser) {
             "<td>" + reise.sykkel + "</td>" +
             "<td>" + reise.tid + "</td>" +
             "<td>" + reise.reiseid + "</td>" +
+            "<td>" + reise.pris + "</td>" +
             "<td> <a class='btn btn-primary' href='endre.html?id="+reise.id+"'>Endre</a></td>" +
             "<td> <button class='btn btn-danger' onclick='slettReise("+reise.id+")'>Slett</button</td>"+
             "</tr>";

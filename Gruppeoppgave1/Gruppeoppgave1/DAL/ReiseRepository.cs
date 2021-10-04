@@ -26,6 +26,7 @@ namespace Gruppeoppgave1.DAL
                 nyReiseRad.Dato = innReise.Dato;
                 nyReiseRad.Tid = innReise.Tid;
                 nyReiseRad.Reiseid = innReise.Reiseid;
+                nyReiseRad.Pris = innReise.Pris;
 
                 var billettrad = new BillettInfo();
                 billettrad.Voksen = innReise.Voksen;
@@ -65,6 +66,7 @@ namespace Gruppeoppgave1.DAL
                     Dato = k.Dato,
                     Tid = k.Tid,
                     Reiseid = k.Reiseid,
+                    Pris = k.Pris,
                     Voksen = k.BillettIn.Voksen,
                     honnor = k.BillettIn.honnor,
                     Barn = k.BillettIn.Barn,
@@ -112,6 +114,7 @@ namespace Gruppeoppgave1.DAL
                 Dato = enReise.Dato,
                 Tid = enReise.Tid,
                 Reiseid = enReise.Reiseid,
+                Pris = enReise.Pris,
                 Voksen = enReise.BillettIn.Voksen,
                 honnor = enReise.BillettIn.honnor,
                 Barn = enReise.BillettIn.Barn,
@@ -136,6 +139,7 @@ namespace Gruppeoppgave1.DAL
                 endreObjekt.Dato = endreReise.Dato;
                 endreObjekt.Tid = endreReise.Tid;
                 endreObjekt.Reiseid = endreReise.Reiseid;
+                endreObjekt.Pris = endreReise.Pris;
                 endreObjekt.BillettIn.Voksen = endreReise.Voksen;
                 endreObjekt.BillettIn.honnor = endreReise.honnor;
                 endreObjekt.BillettIn.Barn = endreReise.Barn;

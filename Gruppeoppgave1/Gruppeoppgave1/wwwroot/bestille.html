@@ -30,9 +30,10 @@
                     <label>Strekning</label>
                     <select id="strekning" onchange="validerStrekning(this.value)">
                         <option value="Oslo - Kiel">Oslo - Kiel</option>
-                        <option value="Kristiandsand - Bergen">Kristiandsand - Bergen</option>
-                        <option value="Arendal - København">Arendal - København</option>
-                        <option value="Stavanger - York">Stavanger - York</option>
+                        <option value="Kristiandsand - Hirtshals">Kristiandsand - Hirtshals</option>
+                        <option value="Larvik - Hirtshals">Larvik - Hirtshals</option>
+                        <option value="Sandefjord - Strømstad">Sandefjord - Strømstad</option>
+                        <option value="Stavanger - Langesund">Stavanger - Langesund</option>
                     </select>
                     <span id="feilStrekning" style="color: red"></span>
                 </div>
@@ -130,22 +131,19 @@
                         <input type="button" id="tid3" value="Velg reise" onClick="checkButton()" class="btn btn-primary" />
                     </div>
                 </div>
+                </div>
+                <div class="form-group" style="display:none">
 
-                <!--<div class="form-group">
-                    <input type="button" id="tid1" value="12:00" onClick="checkButton()" class="btn btn-primary" />
+                    <input type="button" id="tid" onchange="validerTid(this.value)" />
+                    <span id="feilTid" style="color: red"></span>
+
+                    <input type="button" id="reiseid" onchange="validerReiseid(this.value)" />
+                    <span id="feilReiseid" style="color: red"></span>
+
+                    <input type="button" id="pris" onchange="validerPris(this.value)" />
+                    <span id="feilPris" style="color: red"></span>
                 </div>
-                <div class="form-group">
-                    <input type="button" id="tid2" value="13:00" onClick="checkButton()" class="btn btn-primary" />
-                </div>
-                <div class="form-group">
-                    <input type="button" id="tid3" value="14:00" onClick="checkButton()" class="btn btn-primary" />
-                </div>-->
-            </div>
-            <div class="form-group" style="display:none">
-                <input type="button" id="tid"/>
-                <input type="button" id="reiseid" />
-            </div>
-            <div id="feil" style="color: red"></div>
+              <div id="feil" style="color: red"></div>
         </form>
     </div>
 </body>

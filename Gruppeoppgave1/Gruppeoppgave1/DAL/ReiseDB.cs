@@ -22,6 +22,9 @@ namespace Gruppeoppgave1.Model
 
         public string Reiseid { get; set; }
 
+        public int Pris { get; set; }
+
+
         public virtual BillettInfo BillettIn { get; set; }
 
         public virtual TransportInfo TransportIn { get; set; }

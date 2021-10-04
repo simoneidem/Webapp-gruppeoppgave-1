@@ -23,8 +23,10 @@ namespace Gruppeoppgave1.Model
         public string Dato { get; set; }
         [RegularExpression(@"^(2[0-3]|[01]?[0-9]):([0-5]?[0-9])$")]
         public string Tid { get; set; }
-
+        [RegularExpression(@"^[A-Za-z][0-9]{4}$")]
         public string Reiseid { get; set; }
+        [RegularExpression(@"^[+-]?[0-9]{1,3}(?:,?[0-9]{3})*$")]
+        public int Pris { get; set; }
 
         public int BillettId { get; set; }
         [RegularExpression(@"^([0-9]|1[0-5])$")]

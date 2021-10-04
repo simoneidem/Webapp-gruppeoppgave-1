@@ -140,3 +140,43 @@ function validerTid(tid) {
         return true;
     }
 }
+
+function validerTid(tid) {
+    const regexp = /^(2[0-3]|[01]?[0-9]):([0-5]?[0-9])$/;
+    const ok = regexp.test(tid);
+    if (!ok) {
+        $("#feilTid").html("Tid må være formatert som 00:00")
+        return false;
+    }
+    else {
+        $("#feilTid").html("");
+        return true;
+    }
+}
+
+function validerPris(pris) {
+    const regexp = /^[+-]?[0-9]{1,3}(?:,?[0-9]{3})*$/;
+    const ok = regexp.test(pris);
+    if (!ok) {
+        $("#feilPris").html("Pris må være formatert som 1500")
+        return false;
+    }
+    else {
+        $("#feilPris").html("");
+        return true;
+    }
+}
+
+function validerReiseid(reiseid) {
+    const regexp = /^[A-Za-z][0-9]{4}$/;
+    const ok = regexp.test(reiseid);
+    if (!ok) {
+        $("#feilReiseid").html("Reiseid må være formatert som C0000")
+        return false;
+    }
+    else {
+        $("#feilReiseid").html("");
+        return true;
+    }
+}
+

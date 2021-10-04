@@ -36,6 +36,24 @@ function dontShow() {
     document.getElementById('card2').innerHTML = $("#strekning").val();
     document.getElementById('card3').innerHTML = $("#strekning").val();
 
+    pris();
+
+}
+
+function pris() {
+    var voksen = $("#voksen").val() * 150;
+    var honnor = $("#honnor").val() * 125;
+    var barn = $("#barn").val() * 50;
+    var student = $("#student").val() * 100;
+    var sumBillett = voksen + honnor + barn + student;
+
+    var bil = $("#bil").val() * 200;
+    var motorsykkel = $("#motorsykkel").val() * 100;
+    var sykkel = $("#sykkel").val() * 50;
+    var sumTransport = bil + motorsykkel + sykkel;
+
+    var sum = sumBillett + sumTransport;
+    return sum;
 }
 
 function checkButton() {
@@ -44,20 +62,23 @@ function checkButton() {
         var reiseid1 = "Z0321";
         document.getElementById("tid").value = tid1;
         document.getElementById("reiseid").value = reiseid1;
-        validerOgBestill()
+        document.getElementById("pris").value = pris();
+        validerOgBestill();
     };
     document.getElementById('tid2').onclick = function () {
         var tid2 = "13:00";
         var reiseid2 = "A5123";
         document.getElementById("tid").value = tid2;
         document.getElementById("reiseid").value = reiseid2;
-        validerOgBestill()
+        document.getElementById("pris").value = pris();
+        validerOgBestill();
     };
     document.getElementById('tid3').onclick = function () {
         var tid3 = "14:00";
         var reiseid3 = "C9543";
         document.getElementById("tid").value = tid3;
         document.getElementById("reiseid").value = reiseid3;
+        document.getElementById("pris").value = pris();
         validerOgBestill();
     };
 }
@@ -66,7 +87,7 @@ function validerOgBestill() {
     const typeOK = validerType($("#type").val());
     const strekningOK = validerStrekning($("#strekning").val());
     const datoOK = validerDato($("#dato").val());
-    const tidOK = true;
+    const tidOK = validerTid($("#tid").val());
     const voksenOK = validerVoksen($("#voksen").val());
     const honnorOK = validerHonnor($("#honnor").val());
     const barnOK = validerBarn($("#barn").val());
@@ -74,11 +95,13 @@ function validerOgBestill() {
     const bilOK = validerBil($("#bil").val());
     const motorsykkelOK = validerMotorsykkel($("#motorsykkel").val());
     const sykkelOK = validerSykkel($("#sykkel").val());
-    const reiseOK = true;
-    if (typeOK && strekningOK && datoOK && tidOK && voksenOK && honnorOK && barnOK && studentOK && bilOK && motorsykkelOK && sykkelOK && reiseOK) {
+    const reiseidOK = validerReiseid($("#reiseid").val());
+    const prisOK = validerPris($("#pris").val());
+    if (typeOK && strekningOK && datoOK && tidOK && voksenOK && honnorOK && barnOK && studentOK && bilOK && motorsykkelOK && sykkelOK && reiseidOK && prisOK) {
         bestillReise();
     }
 }
+
 function bestillReise() {
     const reise = {
         type: $("#type").val(),
@@ -86,6 +109,7 @@ function bestillReise() {
         dato: $("#dato").val(),
         tid: $("#tid").val(),
         reiseid: $("#reiseid").val(),
+        pris: $("#pris").val(),
         voksen: $("#voksen").val(),
         honnor: $("#honnor").val(),
         barn: $("#barn").val(),
