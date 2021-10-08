@@ -37,6 +37,7 @@ namespace Gruppeoppgave1.Controllers
                     return BadRequest("Bestillingen ble ikke lagret");
                 }
                 return Ok("Bestilling ble lagret");
+              
             }
             _log.LogInformation("Feil i inputvalidering");
             return BadRequest("Feil i inputvalidering på server");
