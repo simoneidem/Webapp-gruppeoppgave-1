@@ -99,6 +99,7 @@ namespace Gruppeoppgave1.DAL
                 Reiser enDBReise = await _db.Reiser.FindAsync(id);
                 BillettInfo enBillett = await _db.BillettInfo.FindAsync(id);
                 TransportInfo enTransport = await _db.TransportInfo.FindAsync(id);
+
                 _db.Reiser.Remove(enDBReise);
                 _db.BillettInfo.Remove(enBillett);
                 _db.TransportInfo.Remove(enTransport);

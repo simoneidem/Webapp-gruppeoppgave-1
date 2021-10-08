@@ -30,6 +30,7 @@ namespace Gruppeoppgave1.Model
         [RegularExpression(@"^[+-]?[0-9]{1,3}(?:,?[0-9]{3})*$")]
         public int Pris { get; set; }
 
+        //Egen tabell for billett
         public int BillettId { get; set; }
         [RegularExpression(@"^([0-9]|1[0-5])$")]
         public int Voksen { get; set; }
@@ -40,6 +41,7 @@ namespace Gruppeoppgave1.Model
         [RegularExpression(@"^([0-9]|1[0-5])$")]
         public int Student { get; set; }
 
+        //Egen tabell for transport
         public int TransportId { get; set; }
         [RegularExpression(@"^([0-9]|1[0-5])$")]
         public int Bil { get; set; }

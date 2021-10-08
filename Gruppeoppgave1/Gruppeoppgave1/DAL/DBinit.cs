@@ -25,8 +25,8 @@ namespace Gruppeoppgave1.Model
                 var Transport2 = new TransportInfo { Bil = 0, Motorsykkel = 0, Sykkel = 4 };
 
 
-                var reise1 = new Reiser { Type = "En vei", Strekning = "Kristiandsand - Kiel", Dato = "17-05-2021", BillettIn = Billett1, TransportIn = Transport1, Innreise = "18-05-2021" };
-                var reise2 = new Reiser { Type = "Tur/retur", Strekning = "Oslo - Arendal", Dato = "08-10-2021", BillettIn = Billett2, TransportIn = Transport2, Innreise = "18-05-2021" };
+                var reise1 = new Reiser { Type = "En vei", Strekning = "Kristiandsand - Kiel", Dato = "17-05-2021", BillettIn = Billett1, TransportIn = Transport1, Innreise = "18-05-2021", Tid = "14:00", Reiseid = "C9543", Pris = 750 };
+                var reise2 = new Reiser { Type = "Tur/retur", Strekning = "Oslo - Arendal", Dato = "08-10-2021", BillettIn = Billett2, TransportIn = Transport2, Innreise = "18-05-2021", Tid = "15:00", Reiseid = "A5123", Pris = 1250};
 
                 context.Reiser.Add(reise1);
                 context.Reiser.Add(reise2);

@@ -134,7 +134,6 @@ function bestillReise() {
         motorsykkel: $("#motorsykkel").val(),
         sykkel: $("#sykkel").val()
     }
-    console.log(reise);
 
     const url = "Reise/Bestille";
     $.post(url, reise, function () {
