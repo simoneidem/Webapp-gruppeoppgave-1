@@ -21,6 +21,8 @@ namespace Gruppeoppgave1.Model
         public string Strekning { get; set; }
         [RegularExpression(@"^\d{2}\-\d{2}\-\d{2}$")]
         public string Dato { get; set; }
+        [RegularExpression(@"^\d{2}\-\d{2}\-\d{2}$")]
+        public string Innreise { get; set; }
         [RegularExpression(@"^(2[0-3]|[01]?[0-9]):([0-5]?[0-9])$")]
         public string Tid { get; set; }
         [RegularExpression(@"^[A-Za-z][0-9]{4}$")]

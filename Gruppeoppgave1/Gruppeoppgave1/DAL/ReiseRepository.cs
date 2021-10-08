@@ -16,29 +16,36 @@ namespace Gruppeoppgave1.DAL
             _db = db;
         }
 
-        public async Task<bool> Bestille(Reise innReise)
+        public async Task<bool> Bestille(Reise innReis)
         {
             try
             {
-                var nyReiseRad = new Reiser();
-                nyReiseRad.Type = innReise.Type;
-                nyReiseRad.Strekning = innReise.Strekning;
-                nyReiseRad.Dato = innReise.Dato;
-                nyReiseRad.Tid = innReise.Tid;
-                nyReiseRad.Reiseid = innReise.Reiseid;
-                nyReiseRad.Pris = innReise.Pris;
+                var nyReiseRad = new Reiser
+                {
+                    Type = innReis.Type,
+                    Strekning = innReis.Strekning,
+                    Dato = innReis.Dato,
+                    Tid = innReis.Tid,
+                    Reiseid = innReis.Reiseid,
+                    Pris = innReis.Pris,
+                    Innreise = innReis.Innreise
+                };
 
-                var billettrad = new BillettInfo();
-                billettrad.Voksen = innReise.Voksen;
-                billettrad.Barn = innReise.Barn;
-                billettrad.honnor = innReise.honnor;
-                billettrad.Student = innReise.Student;
+                var billettrad = new BillettInfo
+                {
+                    Voksen = innReis.Voksen,
+                    Barn = innReis.Barn,
+                    honnor = innReis.honnor,
+                    Student = innReis.Student
+                };
                 nyReiseRad.BillettIn = billettrad;
 
-                var transportrad = new TransportInfo();
-                transportrad.Bil = innReise.Bil;
-                transportrad.Motorsykkel = innReise.Motorsykkel;
-                transportrad.Sykkel = innReise.Sykkel;
+                var transportrad = new TransportInfo
+                {
+                    Bil = innReis.Bil,
+                    Motorsykkel = innReis.Motorsykkel,
+                    Sykkel = innReis.Sykkel
+                };
                 nyReiseRad.TransportIn = transportrad;
                
 
@@ -67,6 +74,7 @@ namespace Gruppeoppgave1.DAL
                     Tid = k.Tid,
                     Reiseid = k.Reiseid,
                     Pris = k.Pris,
+                    Innreise = k.Innreise,
                     Voksen = k.BillettIn.Voksen,
                     honnor = k.BillettIn.honnor,
                     Barn = k.BillettIn.Barn,
@@ -115,6 +123,7 @@ namespace Gruppeoppgave1.DAL
                 Tid = enReise.Tid,
                 Reiseid = enReise.Reiseid,
                 Pris = enReise.Pris,
+                Innreise = enReise.Innreise,
                 Voksen = enReise.BillettIn.Voksen,
                 honnor = enReise.BillettIn.honnor,
                 Barn = enReise.BillettIn.Barn,
@@ -140,6 +149,7 @@ namespace Gruppeoppgave1.DAL
                 endreObjekt.Tid = endreReise.Tid;
                 endreObjekt.Reiseid = endreReise.Reiseid;
                 endreObjekt.Pris = endreReise.Pris;
+                endreObjekt.Innreise = endreReise.Innreise;
                 endreObjekt.BillettIn.Voksen = endreReise.Voksen;
                 endreObjekt.BillettIn.honnor = endreReise.honnor;
                 endreObjekt.BillettIn.Barn = endreReise.Barn;

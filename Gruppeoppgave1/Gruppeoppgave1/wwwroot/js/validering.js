@@ -37,6 +37,19 @@ function validerDato(dato) {
     }
 }
 
+function validerInnreise(innreise) {
+    const regexp = /^\d{2}\-\d{2}\-\d{2}$/;
+    const ok = regexp.test(innreise);
+    if (!ok) {
+        $("#feilInnreise").html("Innreise må være formatert som dd.mm.yy EKS: (01-01-21)")
+        return false;
+    }
+    else {
+        $("#feilInnreise").html("");
+        return true;
+    }
+}
+
 function validerVoksen(voksen) {
     const regexp = /^([0-9]|1[0-5])$/;
     const ok = regexp.test(voksen);

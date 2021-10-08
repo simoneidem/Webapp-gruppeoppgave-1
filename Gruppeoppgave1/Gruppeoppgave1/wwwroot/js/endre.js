@@ -10,6 +10,7 @@
     document.getElementById('ifno1').style.display = 'none';
     document.getElementById('ifno2').style.display = 'none';
     document.getElementById('ifno3').style.display = 'none';
+    document.getElementById('ifno4').style.display = 'none';
 
     document.getElementById('button1').style.display = 'none';
     document.getElementById('button2').style.display = 'block';
@@ -27,6 +28,7 @@ function dontShow() {
     document.getElementById('ifno1').style.display = 'none';
     document.getElementById('ifno2').style.display = 'none';
     document.getElementById('ifno3').style.display = 'none';
+    document.getElementById('ifno4').style.display = 'none';
 
     document.getElementById('button1').style.display = 'none';
     document.getElementById('button2').style.display = 'none';
@@ -107,6 +109,7 @@ function validerOgEndre() {
     const typeOK = validerType($("#type").val());
     const strekningOK = validerStrekning($("#strekning").val());
     const datoOK = validerDato($("#dato").val());
+    const innreiseOK = validerInnreise($("#innreise").val());
     const tidOK = validerTid($("#tid").val());
     const voksenOK = validerVoksen($("#voksen").val());
     const honnorOK = validerHonnor($("#honnor").val());
@@ -117,7 +120,7 @@ function validerOgEndre() {
     const sykkelOK = validerSykkel($("#sykkel").val());
     const reiseidOK = validerReiseid($("#reiseid").val());
     const prisOK = validerPris($("#pris").val());
-    if (typeOK && strekningOK && datoOK && tidOK && voksenOK && honnorOK && barnOK && studentOK && bilOK && motorsykkelOK && sykkelOK && reiseidOK && prisOK) {
+    if (typeOK && strekningOK && innreiseOK && datoOK && tidOK && voksenOK && honnorOK && barnOK && studentOK && bilOK && motorsykkelOK && sykkelOK && reiseidOK && prisOK) {
         endreReise();
     }
 }
@@ -128,6 +131,7 @@ function endreReise() {
         type: $("#type").val(),
         strekning: $("#strekning").val(),
         dato: $("#dato").val(),
+        innreise: $("#innreise").val(),
         tid: $("#tid").val(),
         reiseid: $("#reiseid").val(),
         pris: $("#pris").val(),

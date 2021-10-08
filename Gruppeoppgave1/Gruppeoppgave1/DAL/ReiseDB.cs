@@ -17,13 +17,14 @@ namespace Gruppeoppgave1.Model
         public string Strekning { get; set; }
 
         public string Dato { get; set; }
-        
+
+        public string Innreise { get; set; }
+
         public string Tid { get; set; }
 
         public string Reiseid { get; set; }
 
         public int Pris { get; set; }
-
 
         public virtual BillettInfo BillettIn { get; set; }
 

@@ -8,7 +8,7 @@ namespace Gruppeoppgave1.DAL
 {
     public interface IReiseRepository
     {
-        Task<bool> Bestille(Reise innReise);
+        Task<bool> Bestille(Reise innReis);
 
         Task<List<Reise>> HentAlle();
 

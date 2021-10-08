@@ -26,11 +26,11 @@ namespace Gruppeoppgave1.Controllers
         }
 
         //Modelstate sjekker om regexen er ok og sender feilmelding hvis ikke
-        public async Task<ActionResult> Bestille(Reise innReise)
+        public async Task<ActionResult> Bestille(Reise innReis)
         {
             if (ModelState.IsValid)
             {
-                bool returOK = await _db.Bestille(innReise);
+                bool returOK = await _db.Bestille(innReis);
                 if (!returOK)
                 {
                     _log.LogInformation("Bestillingen ble ikke lagret");

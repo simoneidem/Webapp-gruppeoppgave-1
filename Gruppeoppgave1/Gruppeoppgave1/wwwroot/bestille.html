@@ -15,7 +15,7 @@
             <div id="ifno1" style="display:block">
                 <div class="form-group">
                     <label>Type</label>
-                    <select id="type" onchange="validerType(this.value)">
+                    <select id="type" onchange="getOption()">
                         <option value="Én vei">Én vei</option>
                         <option value="Tur/retur">Tur/retur</option>
                         <option value="Cruise">Cruise</option>
@@ -43,6 +43,13 @@
                     <label>Dato (for utreise)</label>
                     <input type="text" id="dato" onchange="validerDato(this.value)" />
                     <span id="feilDato" style="color: red"></span>
+                </div>
+            </div>
+            <div id="innre" style="display:none">
+                <div class="form-group">
+                    <label>Innreise</label>
+                    <input type="text" id="innreise" onchange="validerInnreise(this.value)" value="00-00-00" />
+                    <span id="feilInnreise" style="color: red"></span>
                 </div>
             </div>
             <div id="button1" style="display:block">
@@ -100,7 +107,7 @@
                 </div>
             </div>
             <div id="button2" style="display:none">
-                <div class="form-group"> 
+                <div class="form-group">
                     <input type="button" id="reg" value="Se reiser" onClick="dontShow()" class="btn btn-primary" />
                 </div>
             </div>
@@ -131,19 +138,19 @@
                         <input type="button" id="tid3" value="Velg reise" onClick="checkButton()" class="btn btn-primary" />
                     </div>
                 </div>
-                </div>
-                <div class="form-group" style="display:none">
+            </div>
+            <div class="form-group" style="display:none">
 
-                    <input type="button" id="tid" onchange="validerTid(this.value)" />
-                    <span id="feilTid" style="color: red"></span>
+                <input type="button" id="tid" onchange="validerTid(this.value)" />
+                <span id="feilTid" style="color: red"></span>
 
-                    <input type="button" id="reiseid" onchange="validerReiseid(this.value)" />
-                    <span id="feilReiseid" style="color: red"></span>
+                <input type="button" id="reiseid" onchange="validerReiseid(this.value)" />
+                <span id="feilReiseid" style="color: red"></span>
 
-                    <input type="button" id="pris" onchange="validerPris(this.value)" />
-                    <span id="feilPris" style="color: red"></span>
-                </div>
-              <div id="feil" style="color: red"></div>
+                <input type="button" id="pris" onchange="validerPris(this.value)" />
+                <span id="feilPris" style="color: red"></span>
+            </div>
+            <div id="feil" style="color: red"></div>
         </form>
     </div>
 </body>
