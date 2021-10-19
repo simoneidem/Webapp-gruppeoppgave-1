@@ -17,5 +17,7 @@ namespace Gruppeoppgave1.DAL
         Task<Reise> HentEn(int id);
 
         Task<bool> Endre(Reise endreReise);
+
+        Task<bool> LoggInn(Bruker bruker);
     }
 }

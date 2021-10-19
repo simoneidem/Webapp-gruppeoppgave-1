@@ -54,7 +54,6 @@ C:\Users\Lekerommet\Source\Repos\Webapp-gruppeoppgave-1\Gruppeoppgave1\Gruppeopp
 C:\Users\Lekerommet\Source\Repos\Webapp-gruppeoppgave-1\Gruppeoppgave1\Gruppeoppgave1\obj\Debug\netcoreapp3.1\staticwebassets\Gruppeoppgave1.StaticWebAssets.xml
 C:\Users\Lekerommet\Source\Repos\Webapp-gruppeoppgave-1\Gruppeoppgave1\Gruppeoppgave1\obj\Debug\netcoreapp3.1\scopedcss\bundle\Gruppeoppgave1.styles.css
 C:\Users\Lekerommet\Source\Repos\Webapp-gruppeoppgave-1\Gruppeoppgave1\Gruppeoppgave1\obj\Debug\netcoreapp3.1\Gruppeoppgave1.RazorTargetAssemblyInfo.cache
-C:\Users\Lekerommet\Source\Repos\Webapp-gruppeoppgave-1\Gruppeoppgave1\Gruppeoppgave1\obj\Debug\netcoreapp3.1\Gruppeoppgave1.csproj.CopyComplete
 C:\Users\Lekerommet\Source\Repos\Webapp-gruppeoppgave-1\Gruppeoppgave1\Gruppeoppgave1\obj\Debug\netcoreapp3.1\Gruppeoppgave1.dll
 C:\Users\Lekerommet\Source\Repos\Webapp-gruppeoppgave-1\Gruppeoppgave1\Gruppeoppgave1\obj\Debug\netcoreapp3.1\Gruppeoppgave1.pdb
 C:\Users\Lekerommet\Source\Repos\Webapp-gruppeoppgave-1\Gruppeoppgave1\Gruppeoppgave1\obj\Debug\netcoreapp3.1\Gruppeoppgave1.genruntimeconfig.cache

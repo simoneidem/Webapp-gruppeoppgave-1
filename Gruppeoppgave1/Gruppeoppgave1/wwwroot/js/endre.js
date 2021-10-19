@@ -146,8 +146,13 @@ function endreReise() {
     $.post("Reise/Endre", reise, function () {
         window.location.href = 'index.html';
     })
-    .fail(function () {
-        $("#feil").html("Feil på server - prøv igjen senere")
-    });
+        .fail(function (feil) {
+            if (feil.status == 401) {  // ikke logget inn, redirect til loggInn.html
+                window.location.href = 'loggInn.html';
+            }
+            else {
+                $("#feil").html("Feil på server - prøv igjen senere");
+            }
+        });
 }
 

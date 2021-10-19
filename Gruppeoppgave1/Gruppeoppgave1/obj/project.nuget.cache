@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3SeGb7FP5wg12gw9q5+WRjD6iIDc4L+K2QYPJ3a/qN69Vjd89+vkZW58U6JxIW/o8nT0BHv1LESQ/GCwLa6Q5A==",
+  "dgSpecHash": "tBTWaaRd6fwO2QLi6HWEibRkKioWyzpgA9n6FA7b/91Gm39FB9QbQtc787UAK9/Zt4GI1Ecnoi+8OePlF0gtog==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Lekerommet\\Source\\Repos\\Webapp-gruppeoppgave-1\\Gruppeoppgave1\\Gruppeoppgave1\\Gruppeoppgave1.csproj",
+  "projectFilePath": "C:\\Users\\Lekerommet\\source\\repos\\Webapp-gruppeoppgave-1\\Gruppeoppgave1\\Gruppeoppgave1\\Gruppeoppgave1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lekerommet\\.nuget\\packages\\castle.core\\4.4.1\\castle.core.4.4.1.nupkg.sha512",
     "C:\\Users\\Lekerommet\\.nuget\\packages\\microsoft.csharp\\4.0.1\\microsoft.csharp.4.0.1.nupkg.sha512",

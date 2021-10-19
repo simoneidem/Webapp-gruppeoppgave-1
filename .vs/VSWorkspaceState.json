@@ -6,8 +6,9 @@
     "\\Gruppeoppgave1\\Gruppeoppgave1\\Controllers",
     "\\Gruppeoppgave1\\Gruppeoppgave1\\DAL",
     "\\Gruppeoppgave1\\Gruppeoppgave1\\wwwroot",
-    "\\Gruppeoppgave1\\Gruppeoppgave1\\wwwroot\\js"
+    "\\Gruppeoppgave1\\Gruppeoppgave1\\wwwroot\\js",
+    "\\Gruppeoppgave1\\xUnitTestProject1"
   ],
-  "SelectedNode": "\\Gruppeoppgave1\\Gruppeoppgave1\\wwwroot\\js\\index.js",
+  "SelectedNode": "\\Gruppeoppgave1\\xUnitTestProject1\\ReiseTest.cs",
   "PreviewInSolutionExplorer": false
 }

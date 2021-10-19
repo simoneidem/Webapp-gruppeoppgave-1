@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Gruppeoppgave1.DAL;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 namespace Gruppeoppgave1.Model
@@ -13,10 +14,10 @@ namespace Gruppeoppgave1.Model
         {
             using (var serviceScope = app.ApplicationServices.CreateScope())
             {
-                var context = serviceScope.ServiceProvider.GetService<ReiseDB>();
+                var db = serviceScope.ServiceProvider.GetService<ReiseDB>();
 
-                context.Database.EnsureDeleted();
-                context.Database.EnsureCreated();
+                db.Database.EnsureDeleted();
+                db.Database.EnsureCreated();
 
                 var Billett1 = new BillettInfo { Voksen = 1, honnor = 0, Barn = 0, Student = 2 };
                 var Billett2 = new BillettInfo { Voksen = 0, honnor = 2, Barn = 0, Student = 2 };
@@ -28,10 +29,19 @@ namespace Gruppeoppgave1.Model
                 var reise1 = new Reiser { Type = "En vei", Strekning = "Kristiandsand - Kiel", Dato = "17-05-2021", BillettIn = Billett1, TransportIn = Transport1, Innreise = "18-05-2021", Tid = "14:00", Reiseid = "C9543", Pris = 750 };
                 var reise2 = new Reiser { Type = "Tur/retur", Strekning = "Oslo - Arendal", Dato = "08-10-2021", BillettIn = Billett2, TransportIn = Transport2, Innreise = "18-05-2021", Tid = "15:00", Reiseid = "A5123", Pris = 1250};
 
-                context.Reiser.Add(reise1);
-                context.Reiser.Add(reise2);
+                db.Reiser.Add(reise1);
+                db.Reiser.Add(reise2);
 
-                context.SaveChanges();
+                var bruker = new Brukere();
+                bruker.Brukernavn = "Admin";
+                string passord = "Admin123";
+                byte[] salt = ReiseRepository.LagSalt();
+                byte[] hash = ReiseRepository.LagHash(passord, salt);
+                bruker.Passord = hash;
+                bruker.Salt = salt;
+                db.Brukere.Add(bruker);
+
+                db.SaveChanges();
             }
         }
     }

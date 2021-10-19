@@ -1,5 +1,6 @@
 ﻿using Gruppeoppgave1.DAL;
 using Gruppeoppgave1.Model;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -15,9 +16,12 @@ namespace Gruppeoppgave1.Controllers
     public class ReiseController : ControllerBase
     {
         //Filen er for feilhåndtering av programmet
-        private IReiseRepository _db;
 
+        private IReiseRepository _db;
         private ILogger<ReiseController> _log;
+
+        private const string _loggetInn = "loggetInn";
+        private const string _ikkeLoggetInn = "";
 
         public ReiseController(IReiseRepository db, ILogger<ReiseController> log)
         {
@@ -28,6 +32,10 @@ namespace Gruppeoppgave1.Controllers
         //Modelstate sjekker om regexen er ok og sender feilmelding hvis ikke
         public async Task<ActionResult> Bestille(Reise innReis)
         {
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
+            {
+                return Unauthorized();
+            }
             if (ModelState.IsValid)
             {
                 bool returOK = await _db.Bestille(innReis);
@@ -45,12 +53,20 @@ namespace Gruppeoppgave1.Controllers
 
         public async Task<ActionResult> HentAlle()
         {
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
+            {
+                return Unauthorized();
+            }
             List<Reise> alleReiser = await _db.HentAlle();
             return Ok(alleReiser);
         }
 
         public async Task<ActionResult> Slett(int id)
         {
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
+            {
+                return Unauthorized();
+            }
             bool returOK = await _db.Slett(id);
             if (!returOK)
             {
@@ -62,6 +78,10 @@ namespace Gruppeoppgave1.Controllers
 
         public async Task<ActionResult> HentEn(int id)
         {
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
+            {
+                return Unauthorized();
+            }
             if (ModelState.IsValid)
             {
                 Reise reisen = await _db.HentEn(id);
@@ -78,6 +98,10 @@ namespace Gruppeoppgave1.Controllers
 
         public async Task<ActionResult> Endre(Reise endreReise)
         {
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
+            {
+                return Unauthorized();
+            }
             if (ModelState.IsValid)
             {
                 bool returOK = await _db.Endre(endreReise);
@@ -91,6 +115,28 @@ namespace Gruppeoppgave1.Controllers
             _log.LogInformation("Feil i inputvalidering");
             return BadRequest("Feil i inputvalidering på server");
         }
-    }
 
+        public async Task<ActionResult> LoggInn(Bruker bruker)
+        {
+            if (ModelState.IsValid)
+            {
+                bool returnOK = await _db.LoggInn(bruker);
+                if (!returnOK)
+                {
+                    _log.LogInformation("Innloggingen feilet for bruker " + bruker.Brukernavn);
+                    HttpContext.Session.SetString(_loggetInn, "");
+                    return Ok(false);
+                }
+                HttpContext.Session.SetString(_loggetInn, "LoggetInn");
+                return Ok(true);
+            }
+            _log.LogInformation("Feil i inputvalidering");
+            return BadRequest("Feil i inputvalidering på server");
+        }
+        
+        public void LoggUt()
+        {
+            HttpContext.Session.SetString(_loggetInn, "");
+        }
+    }
 }

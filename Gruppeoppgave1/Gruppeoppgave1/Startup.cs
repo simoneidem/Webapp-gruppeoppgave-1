@@ -25,6 +25,14 @@ namespace Gruppeoppgave1
                            options.UseSqlite("Data Source=Reise.db"));
 
             services.AddScoped<IReiseRepository, ReiseRepository>();
+
+            services.AddSession(options =>
+            {
+                options.Cookie.Name = ".AdventureWorks.Session";
+                options.IdleTimeout = TimeSpan.FromSeconds(1800); // 30 minutter
+                options.Cookie.IsEssential = true;
+            });
+            services.AddDistributedMemoryCache();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -36,6 +44,8 @@ namespace Gruppeoppgave1
                 loggerFactory.AddFile("Logs/ReiseLog.txt");
                 DBinit.Initialize(app);
             }
+
+            app.UseSession();
 
             app.UseRouting();
 

@@ -63,6 +63,14 @@ namespace Gruppeoppgave1.Model
         public int Sykkel { get; set; }
     }
 
+    public class Brukere
+    {
+        public int Id { get; set; }
+        public string Brukernavn { get; set; }
+        public byte[] Passord { get; set; }
+        public byte[] Salt { get; set; }
+    }
+
     public class ReiseDB :DbContext
     {
         //Klassen er knytningen mellom controller og databasen
@@ -76,6 +84,7 @@ namespace Gruppeoppgave1.Model
         public DbSet<Reiser> Reiser { get; set; }
         public DbSet<BillettInfo> BillettInfo { get; set; }
         public DbSet<TransportInfo> TransportInfo { get; set; }
+        public DbSet<Brukere> Brukere { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
