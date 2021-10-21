@@ -59,10 +59,8 @@ namespace xUnitTestProject1
             mockHttpContext.Setup(s => s.Session).Returns(mockSession);
             reiseController.ControllerContext.HttpContext = mockHttpContext.Object;
 
-            // Act
             var resultat = await reiseController.Bestille(It.IsAny<Reise>()) as BadRequestObjectResult;
 
-            // Assert 
             Assert.Equal((int)HttpStatusCode.BadRequest, resultat.StatusCode);
             Assert.Equal("Reisen kunne ikke lagres", resultat.Value);
         }
@@ -333,7 +331,7 @@ namespace xUnitTestProject1
             var resultat = await reiseController.Slett(It.IsAny<int>()) as NotFoundObjectResult;
 
             Assert.Equal((int)HttpStatusCode.NotFound, resultat.StatusCode);
-            Assert.Equal("Sletting av Reisen ble ikke utført", resultat.Value);
+            Assert.Equal("Sletting av reisen ble ikke utført", resultat.Value);
         }
 
         [Fact]
@@ -347,10 +345,8 @@ namespace xUnitTestProject1
             mockHttpContext.Setup(s => s.Session).Returns(mockSession);
             reiseController.ControllerContext.HttpContext = mockHttpContext.Object;
 
-            // Act
             var resultat = await reiseController.Slett(It.IsAny<int>()) as UnauthorizedObjectResult;
 
-            // Assert 
             Assert.Equal((int)HttpStatusCode.Unauthorized, resultat.StatusCode);
             Assert.Equal("Ikke logget inn", resultat.Value);
         }

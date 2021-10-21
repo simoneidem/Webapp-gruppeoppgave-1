@@ -1,0 +1,7 @@
+2021-10-20T13:10:53.8853859+02:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-10-20T13:10:53.9247687+02:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-10-20T13:10:53.9284384+02:00  [INF] Content root path: "C:\Users\Lekerommet\Source\Repos\Webapp-gruppeoppgave-1\Gruppeoppgave1\Gruppeoppgave1" (b5d60022)
+2021-10-20T18:29:03.2898515+02:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-10-20T18:29:03.3009516+02:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-10-20T18:29:03.3035853+02:00  [INF] Content root path: "C:\Users\Lekerommet\Source\Repos\Webapp-gruppeoppgave-1\Gruppeoppgave1\Gruppeoppgave1" (b5d60022)
+2021-10-20T18:29:11.0606817+02:00 8000000e-0001-fe00-b63f-84710c7967bb [INF] Innloggingen feilet for bruker (13b46012)

@@ -1,27 +1,35 @@
 ﻿using Gruppeoppgave1.Model;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
+using System.Text;
 
 namespace Gruppeoppgave1.DAL
 {
+    [ExcludeFromCodeCoverage]
     public class ReiseRepository : IReiseRepository
     {
         private readonly ReiseDB _db;
+        private ILogger<ReiseRepository> _log;
 
-        public ReiseRepository(ReiseDB db)
+        public ReiseRepository(ReiseDB db, ILogger<ReiseRepository> log)
         {
             _db = db;
+            _log = log;
         }
 
         public async Task<bool> Bestille(Reise innReis)
         {
             try
             {
+
                 var nyReiseRad = new Reiser
                 {
                     Type = innReis.Type,
@@ -52,12 +60,16 @@ namespace Gruppeoppgave1.DAL
                
 
                 _db.Reiser.Add(nyReiseRad);
+                _log.LogInformation(_db.Entry(nyReiseRad).State.ToString());
                 await _db.SaveChangesAsync();
+                _log.LogInformation(_db.Entry(nyReiseRad).State.ToString());
+              
                 return true;
 
             }
-            catch
+            catch (Exception e)
             {
+                _log.LogInformation(e.Message);
                 return false;
             }
         }
@@ -85,10 +97,12 @@ namespace Gruppeoppgave1.DAL
                     Motorsykkel = k.TransportIn.Motorsykkel,
                     Sykkel = k.TransportIn.Sykkel
                 }).ToListAsync();
+                System.Diagnostics.Debug.WriteLine("Hentet alle");
                 return alleReisene;
             }
-            catch
+            catch (Exception e)
             {
+                _log.LogInformation(e.Message);
                 return null;
             }
 
@@ -105,39 +119,56 @@ namespace Gruppeoppgave1.DAL
                 _db.Reiser.Remove(enDBReise);
                 _db.BillettInfo.Remove(enBillett);
                 _db.TransportInfo.Remove(enTransport);
+                _log.LogInformation(_db.Entry(enDBReise).State.ToString());
+                _log.LogInformation(_db.Entry(enBillett).State.ToString());
+                _log.LogInformation(_db.Entry(enTransport).State.ToString());
                 await _db.SaveChangesAsync();
+                _log.LogInformation(_db.Entry(enDBReise).State.ToString());
+                _log.LogInformation(_db.Entry(enBillett).State.ToString());
+                _log.LogInformation(_db.Entry(enTransport).State.ToString());
                 return true;
             }
-            catch
+            catch (Exception e)
             {
+                _log.LogInformation(e.Message);
                 return false;
             }
         }
 
         public async Task<Reise> HentEn(int id)
         {
-            Reiser enReise = await _db.Reiser.FindAsync(id);
-            var hentetReise = new Reise()
+            try
             {
-                Id = enReise.Id,
-                Type = enReise.Type,
-                Strekning = enReise.Strekning,
-                Dato = enReise.Dato,
-                Tid = enReise.Tid,
-                Reiseid = enReise.Reiseid,
-                Pris = enReise.Pris,
-                Innreise = enReise.Innreise,
-                Voksen = enReise.BillettIn.Voksen,
-                honnor = enReise.BillettIn.honnor,
-                Barn = enReise.BillettIn.Barn,
-                Student = enReise.BillettIn.Student,
-                Bil = enReise.TransportIn.Bil,
-                Motorsykkel = enReise.TransportIn.Motorsykkel,
-                Sykkel = enReise.TransportIn.Sykkel
+                Reiser enReise = await _db.Reiser.FindAsync(id);
+                var hentetReise = new Reise()
+                {
+                    Id = enReise.Id,
+                    Type = enReise.Type,
+                    Strekning = enReise.Strekning,
+                    Dato = enReise.Dato,
+                    Tid = enReise.Tid,
+                    Reiseid = enReise.Reiseid,
+                    Pris = enReise.Pris,
+                    Innreise = enReise.Innreise,
+                    Voksen = enReise.BillettIn.Voksen,
+                    honnor = enReise.BillettIn.honnor,
+                    Barn = enReise.BillettIn.Barn,
+                    Student = enReise.BillettIn.Student,
+                    Bil = enReise.TransportIn.Bil,
+                    Motorsykkel = enReise.TransportIn.Motorsykkel,
+                    Sykkel = enReise.TransportIn.Sykkel
 
 
-            };
-            return hentetReise;
+                };
+                System.Diagnostics.Debug.WriteLine("Hentet en");
+                return hentetReise;
+            }
+            catch (Exception e)
+            {
+                _log.LogInformation(e.Message);
+                return null;
+            }
+            
         }
 
         public async Task<bool> Endre(Reise endreReise)
@@ -161,10 +192,15 @@ namespace Gruppeoppgave1.DAL
                 endreObjekt.TransportIn.Motorsykkel = endreReise.Motorsykkel;
                 endreObjekt.TransportIn.Sykkel = endreReise.Sykkel;
 
+            
+                _log.LogInformation(_db.Entry(endreObjekt).State.ToString());
                 await _db.SaveChangesAsync();
+                _log.LogInformation(_db.Entry(endreObjekt).State.ToString());
+                
             }
-            catch
+            catch (Exception e)
             {
+                _log.LogInformation(e.Message);
                 return false;
             }
             return true;
@@ -203,6 +239,7 @@ namespace Gruppeoppgave1.DAL
             }
             catch (Exception e)
             {
+                _log.LogInformation(e.Message);
                 return false;
             }
         }

@@ -16,7 +16,7 @@
             <div id="ifno1" style="display:block">
                 <div class="form-group">
                     <label>Type</label>
-                    <select id="type" onchange="validerType(this.value)">
+                    <select id="type" onchange="getOption()">
                         <option value="Én vei">Én vei</option>
                         <option value="Tur/retur">Tur/retur</option>
                         <option value="Cruise">Cruise</option>
@@ -46,10 +46,10 @@
                     <span id="feilDato" style="color: red"></span>
                 </div>
             </div>
-            <div id="ifno4" style="display:block">
+            <div id="innre" style="display:none">
                 <div class="form-group">
                     <label>Innreise</label>
-                    <input type="text" id="innreise" onchange="validerInnreise(this.value)" />
+                    <input type="text" id="innreise" onchange="validerInnreise(this.value)" value="00-00-00" />
                     <span id="feilInnreise" style="color: red"></span>
                 </div>
             </div>

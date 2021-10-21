@@ -1,0 +1,6 @@
+2021-10-19T16:20:26.1012369+02:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-10-19T16:20:26.1279239+02:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-10-19T16:20:26.1350184+02:00  [INF] Content root path: "C:\Users\Lekerommet\Source\Repos\Webapp-gruppeoppgave-1\Gruppeoppgave1\Gruppeoppgave1" (b5d60022)
+2021-10-19T16:34:24.9168398+02:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-10-19T16:34:24.9300233+02:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-10-19T16:34:24.9327670+02:00  [INF] Content root path: "C:\Users\Lekerommet\Source\Repos\Webapp-gruppeoppgave-1\Gruppeoppgave1\Gruppeoppgave1" (b5d60022)

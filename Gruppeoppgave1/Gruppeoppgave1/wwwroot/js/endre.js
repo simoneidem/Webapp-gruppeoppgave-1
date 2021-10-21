@@ -1,4 +1,14 @@
-﻿function showAll() {
+﻿function getOption() {
+    var retur = document.getElementById('type').value;
+    if (retur == "Tur/retur" || retur == "Innenriks - Tur/retur") {
+        document.getElementById('innre').style.display = "block";
+    }
+    else {
+        document.getElementById('innre').style.display = "none";
+    }
+    validerType(this.value);
+}
+function showAll() {
     document.getElementById('ifPress1').style.display = 'block';
     document.getElementById('ifPress2').style.display = 'block';
     document.getElementById('ifPress3').style.display = 'block';
@@ -6,11 +16,12 @@
     document.getElementById('ifPress5').style.display = 'block';
     document.getElementById('ifPress6').style.display = 'block';
     document.getElementById('ifPress7').style.display = 'block';
+    document.getElementById('innre').style.display = "none";
 
     document.getElementById('ifno1').style.display = 'none';
     document.getElementById('ifno2').style.display = 'none';
     document.getElementById('ifno3').style.display = 'none';
-    document.getElementById('ifno4').style.display = 'none';
+    document.getElementById('innre').style.display = "none";
 
     document.getElementById('button1').style.display = 'none';
     document.getElementById('button2').style.display = 'block';
@@ -28,7 +39,7 @@ function dontShow() {
     document.getElementById('ifno1').style.display = 'none';
     document.getElementById('ifno2').style.display = 'none';
     document.getElementById('ifno3').style.display = 'none';
-    document.getElementById('ifno4').style.display = 'none';
+    document.getElementById('innre').style.display = 'none';
 
     document.getElementById('button1').style.display = 'none';
     document.getElementById('button2').style.display = 'none';
@@ -51,6 +62,7 @@ $(function () {
         $("#type").val(reise.type);
         $("#strekning").val(reise.strekning);
         $("#dato").val(reise.dato);
+        $("#innreise").val(reise.innreise);
         $("#voksen").val(reise.voksen);
         $("#honnor").val(reise.honnor);
         $("#barn").val(reise.barn);
@@ -109,7 +121,6 @@ function validerOgEndre() {
     const typeOK = validerType($("#type").val());
     const strekningOK = validerStrekning($("#strekning").val());
     const datoOK = validerDato($("#dato").val());
-    const innreiseOK = validerInnreise($("#innreise").val());
     const tidOK = validerTid($("#tid").val());
     const voksenOK = validerVoksen($("#voksen").val());
     const honnorOK = validerHonnor($("#honnor").val());
@@ -120,7 +131,8 @@ function validerOgEndre() {
     const sykkelOK = validerSykkel($("#sykkel").val());
     const reiseidOK = validerReiseid($("#reiseid").val());
     const prisOK = validerPris($("#pris").val());
-    if (typeOK && strekningOK && innreiseOK && datoOK && tidOK && voksenOK && honnorOK && barnOK && studentOK && bilOK && motorsykkelOK && sykkelOK && reiseidOK && prisOK) {
+    const innreiseOK = validerInnreise($("#innreise").val());
+    if (typeOK && strekningOK && datoOK && tidOK && voksenOK && honnorOK && barnOK && studentOK && bilOK && motorsykkelOK && sykkelOK && reiseidOK && prisOK && innreiseOK) {
         endreReise();
     }
 }

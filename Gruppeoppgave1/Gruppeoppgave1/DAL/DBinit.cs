@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading.Tasks;
 using Gruppeoppgave1.DAL;
@@ -9,6 +10,7 @@ namespace Gruppeoppgave1.Model
 {
     public class DBinit
     {
+        [ExcludeFromCodeCoverage]
         // Denne filen legger inn data i databasen/tabellen når programmet starter
         public static void Initialize(IApplicationBuilder app)
         {

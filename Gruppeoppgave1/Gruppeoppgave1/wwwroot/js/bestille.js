@@ -26,6 +26,7 @@ function showAll() {
     document.getElementById('button1').style.display = 'none';
     document.getElementById('button2').style.display = 'block';
 };
+
 function dontShow() {
     document.getElementById('ifPress1').style.display = 'none';
     document.getElementById('ifPress2').style.display = 'none';

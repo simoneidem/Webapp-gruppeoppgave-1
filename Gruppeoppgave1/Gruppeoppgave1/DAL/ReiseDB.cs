@@ -2,12 +2,18 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace Gruppeoppgave1.Model
-{
+{   
 
     // Tabell for Reise
+    [ExcludeFromCodeCoverage]
     public class Reiser
     {
         public int Id { get; set; }
@@ -34,6 +40,7 @@ namespace Gruppeoppgave1.Model
 
     // Tabell for Billetter
     // Bruker DatabaseGeneratedOPtion.Identity for at tabellen skal få tildet en key automatisk
+    [ExcludeFromCodeCoverage]
     public class BillettInfo
     {
         [Key]
@@ -50,6 +57,7 @@ namespace Gruppeoppgave1.Model
     }
 
     // Tabell for kjøretøy
+    [ExcludeFromCodeCoverage]
     public class TransportInfo
     {
         [Key]
@@ -63,6 +71,7 @@ namespace Gruppeoppgave1.Model
         public int Sykkel { get; set; }
     }
 
+    [ExcludeFromCodeCoverage]
     public class Brukere
     {
         public int Id { get; set; }
@@ -71,6 +80,7 @@ namespace Gruppeoppgave1.Model
         public byte[] Salt { get; set; }
     }
 
+    [ExcludeFromCodeCoverage]
     public class ReiseDB :DbContext
     {
         //Klassen er knytningen mellom controller og databasen
@@ -78,8 +88,9 @@ namespace Gruppeoppgave1.Model
         public ReiseDB (DbContextOptions<ReiseDB> options) 
             : base (options)
         {
-            Database.EnsureCreated();
+                Database.EnsureCreated();
         }
+
 
         public DbSet<Reiser> Reiser { get; set; }
         public DbSet<BillettInfo> BillettInfo { get; set; }
@@ -91,5 +102,6 @@ namespace Gruppeoppgave1.Model
         {
             optionsBuilder.UseLazyLoadingProxies();
         }
+
     }
 }

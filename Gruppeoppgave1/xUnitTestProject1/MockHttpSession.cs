@@ -36,6 +36,7 @@ namespace xUnitTestProject1
             }
         }
 
+       
         // de underligggende metodene er ikke nødvendige for mocking 
 
         IEnumerable<string> ISession.Keys

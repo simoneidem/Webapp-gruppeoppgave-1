@@ -34,17 +34,17 @@ namespace Gruppeoppgave1.Controllers
         {
             if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
             {
-                return Unauthorized();
+                return Unauthorized("Ikke logget inn");
             }
             if (ModelState.IsValid)
             {
                 bool returOK = await _db.Bestille(innReis);
                 if (!returOK)
                 {
-                    _log.LogInformation("Bestillingen ble ikke lagret");
-                    return BadRequest("Bestillingen ble ikke lagret");
+                    _log.LogInformation("Reisen kunne ikke lagres");
+                    return BadRequest("Reisen kunne ikke lagres");
                 }
-                return Ok("Bestilling ble lagret");
+                return Ok("Reise lagret");
               
             }
             _log.LogInformation("Feil i inputvalidering");
@@ -55,7 +55,7 @@ namespace Gruppeoppgave1.Controllers
         {
             if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
             {
-                return Unauthorized();
+                return Unauthorized("Ikke logget inn");
             }
             List<Reise> alleReiser = await _db.HentAlle();
             return Ok(alleReiser);
@@ -65,52 +65,47 @@ namespace Gruppeoppgave1.Controllers
         {
             if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
             {
-                return Unauthorized();
+                return Unauthorized("Ikke logget inn");
             }
             bool returOK = await _db.Slett(id);
             if (!returOK)
             {
-                _log.LogInformation("Reise ble ikke slettet");
-                return NotFound("Reise ble ikke slettet");
+                _log.LogInformation("Sletting av reisen ble ikke utført");
+                return NotFound("Sletting av reisen ble ikke utført");
             }
-            return Ok("Reise ble slettet");
+            return Ok("Reise slettet");
         }
 
         public async Task<ActionResult> HentEn(int id)
         {
             if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
             {
-                return Unauthorized();
+                return Unauthorized("Ikke logget inn");
             }
-            if (ModelState.IsValid)
-            {
-                Reise reisen = await _db.HentEn(id);
-                if (reisen == null)
+            Reise reisen = await _db.HentEn(id);
+            if (reisen == null)
                 {
                     _log.LogInformation("Fant ikke reisen");
                     return NotFound("Fant ikke reisen");
                 }
-                return Ok(reisen);
-            }
-            _log.LogInformation("Feil i inputvalidering");
-            return BadRequest("Feil i inputvalidering på server");
+            return Ok(reisen);         
         }
 
         public async Task<ActionResult> Endre(Reise endreReise)
         {
             if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
             {
-                return Unauthorized();
+                return Unauthorized("Ikke logget inn");
             }
             if (ModelState.IsValid)
             {
                 bool returOK = await _db.Endre(endreReise);
                 if (!returOK)
                 {
-                    _log.LogInformation("Reise ble ikke endret");
-                    return NotFound("Reise ble ikke endret");
+                    _log.LogInformation("Endringen av reisen kunne ikke utføres");
+                    return NotFound("Endringen av reisen kunne ikke utføres");
                 }
-                return Ok("Reise ble endret");
+                return Ok("Reise endret");
             }
             _log.LogInformation("Feil i inputvalidering");
             return BadRequest("Feil i inputvalidering på server");
@@ -123,11 +118,11 @@ namespace Gruppeoppgave1.Controllers
                 bool returnOK = await _db.LoggInn(bruker);
                 if (!returnOK)
                 {
-                    _log.LogInformation("Innloggingen feilet for bruker " + bruker.Brukernavn);
-                    HttpContext.Session.SetString(_loggetInn, "");
+                    _log.LogInformation("Innloggingen feilet for bruker");
+                    HttpContext.Session.SetString(_loggetInn,_ikkeLoggetInn);
                     return Ok(false);
                 }
-                HttpContext.Session.SetString(_loggetInn, "LoggetInn");
+                HttpContext.Session.SetString(_loggetInn,_loggetInn);
                 return Ok(true);
             }
             _log.LogInformation("Feil i inputvalidering");
@@ -136,7 +131,7 @@ namespace Gruppeoppgave1.Controllers
         
         public void LoggUt()
         {
-            HttpContext.Session.SetString(_loggetInn, "");
+            HttpContext.Session.SetString(_loggetInn,_ikkeLoggetInn);
         }
     }
 }

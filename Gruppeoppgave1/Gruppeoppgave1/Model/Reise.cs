@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Gruppeoppgave1.Model
 {
+    [ExcludeFromCodeCoverage]
     public class Reise
     {
         //Regexen vi brukte for å ha kun nummer mellom 0-15 fant vi på
